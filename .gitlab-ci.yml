@@ -4,11 +4,11 @@ stages:
   - build
   - lint
 
-build:
+run_build:
   stage: build
     - npm run build
 
-lint:
+eslint:
   stage: lint
   script:
     - npm install eslint
