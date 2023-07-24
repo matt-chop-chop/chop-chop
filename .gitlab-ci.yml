@@ -1,7 +1,10 @@
+image: node
+
 stages:
   - lint
 
-lint:
+eslint:
   stage: lint
   script:
+    - npm install eslint
     - npm run lint
