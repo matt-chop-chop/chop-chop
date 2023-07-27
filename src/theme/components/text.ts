@@ -16,9 +16,15 @@ const variantBodySmall = defineStyle({
   lineHeight: "24px",
 });
 
+const variantBodyLarge = defineStyle({
+  fontSize: "20px",
+  lineHeight: "32px",
+});
+
 const variants = {
   body: variantBody,
   "body-small": variantBodySmall,
+  "body-large": variantBodyLarge,
 };
 
 export const Text = defineStyleConfig({

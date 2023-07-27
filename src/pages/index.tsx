@@ -1,7 +1,8 @@
-import { Heading } from "@chakra-ui/react";
+import { Hero } from "@/Components";
+import { siteDescription } from "@/constants";
 
 const Home = () => {
-  return <Heading>Welcome to Chakra + Next.js</Heading>;
+  return <Hero title="Welcome to Chop Chop!" message={siteDescription} />;
 };
 
 export default Home;
