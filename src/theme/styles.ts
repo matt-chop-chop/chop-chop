@@ -1,16 +1,17 @@
 export const styles = {
   global: {
-    '#root': {
-      minH: '100vh',
-      display: 'flex',
-      flexDirection: 'column'
+    "#root": {
+      minH: "100vh",
+      display: "flex",
+      flexDirection: "column",
     },
-    body: {
-      backgroundColor: 'light.background',
+    "html, body": {
+      background: "light.background",
+      color: "light.emphasis",
 
       _dark: {
-        backgroundColor: 'dark.background'
-      }
-    }
-  }
-}
+        backgroundColor: "dark.background",
+      },
+    },
+  },
+};
