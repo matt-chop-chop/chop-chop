@@ -44,7 +44,7 @@ const parseCookingTime = (instructions: string): number => {
     getHours(_instructions);
   const timeAsMinutes = timeAsSeconds / 60;
   const roundedTimeAsMinutes = Math.ceil(timeAsMinutes / 5) * 5;
-  return roundedTimeAsMinutes;
+  return roundedTimeAsMinutes + 15;
 };
 
 const parseIngredients = (apiRecipe: ApiRecipe): Ingredient[] => {
@@ -60,6 +60,9 @@ const parseIngredients = (apiRecipe: ApiRecipe): Ingredient[] => {
     return {
       name: apiRecipe[key as keyof ApiRecipe] || "",
       measurement: apiRecipe[measurementKeys[index] as keyof ApiRecipe] || "",
+      image: `https://www.themealdb.com/images/ingredients/${
+        apiRecipe[key as keyof ApiRecipe]
+      }.png`,
     };
   });
 
@@ -74,18 +77,25 @@ export const convertApiRecipeToRecipe = (apiRecipe: ApiRecipe): Recipe => {
   const ingredients = parseIngredients(apiRecipe);
   const tags = apiRecipe?.strTags ? apiRecipe.strTags.split(",") : [];
 
+  const instructionsWithDelimiter =
+    apiRecipe?.strInstructions?.replaceAll(". ", ". @£$") || "";
+  const instructions = instructionsWithDelimiter.split("@£$");
+
   return {
     id: apiRecipe?.idMeal || "",
     area: apiRecipe?.strArea || "",
     category: apiRecipe?.strCategory || "",
-    image: apiRecipe?.strImageSource || "",
+    image: apiRecipe?.strMealThumb || "",
     ingredients,
-    instructions: apiRecipe?.strInstructions || "",
+    instructions,
     name: apiRecipe?.strMeal || "",
-    thumbnail: apiRecipe?.strMealThumb || "",
+    thumbnail: apiRecipe?.strMealThumb
+      ? apiRecipe.strMealThumb + "/preview"
+      : "",
     source: apiRecipe?.strSource || "",
     tags,
     ingredientCount: ingredients.length,
     time: parseCookingTime(apiRecipe?.strInstructions || ""),
+    youtube: apiRecipe?.strYoutube || "",
   };
 };

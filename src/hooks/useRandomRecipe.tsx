@@ -7,7 +7,6 @@ type ApiQueryState = {
   data?: ApiMeal;
   error: unknown;
   isLoading: boolean;
-  isSuccess: boolean;
 };
 
 type RandomRecipeQueryState = {
@@ -24,9 +23,10 @@ export const useRandomRecipe = (key: number): RandomRecipeQueryState => {
     }
   );
 
-  const { data, isLoading: loading, error, isSuccess } = response;
+  const { data, isLoading: loading, error } = response;
+  console.log(data?.data.meals[0]);
 
-  const recipe = data ? convertApiRecipeToRecipe(data.data.meals[0]) : null;
+  const recipe = data ? convertApiRecipeToRecipe(data.data?.meals[0]) : null;
 
   return { recipe, loading, error: getReactQueryError(error) };
 };

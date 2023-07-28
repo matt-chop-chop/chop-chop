@@ -51,6 +51,7 @@ type ApiRecipe = {
   strMeasure20: string | null;
   strSource: string | null;
   strTags: string | null;
+  strYoutube: string | null;
 };
 
 type ApiMeal = {
@@ -62,6 +63,7 @@ type ApiMeal = {
 type Ingredient = {
   name: string;
   measurement: string;
+  image: string;
 };
 
 type Recipe = {
@@ -70,11 +72,12 @@ type Recipe = {
   category: string;
   image: string;
   ingredients: Ingredient[];
-  instructions: string;
+  instructions: string[];
   name: string;
   thumbnail: string;
   source: string;
   tags: string[];
   ingredientCount: number;
   time: number;
+  youtube: string;
 };

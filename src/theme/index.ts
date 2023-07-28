@@ -1,5 +1,5 @@
 import { extendTheme, ThemeConfig } from "@chakra-ui/react";
-import { Button, Heading, Tag, Text } from "./components";
+import { Button, Checkbox, Heading, Tag, Text } from "./components";
 import { breakpoints, colorsDark, colorsLight, fonts } from "./foundations";
 import { styles } from "./styles";
 
@@ -20,6 +20,7 @@ export const overrides = {
   fonts,
   components: {
     Button,
+    Checkbox,
     Heading,
     Tag,
     Text,

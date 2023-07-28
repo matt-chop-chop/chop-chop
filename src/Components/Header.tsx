@@ -1,7 +1,14 @@
-import { Flex } from "@chakra-ui/react";
+import { Flex, Link, Text } from "@chakra-ui/react";
 import { Logo } from "@/Components";
+import NextLink from "next/link";
+import { useRouter } from "next/router";
 
 export const Header = () => {
+  const router = useRouter();
+  const { pathname } = router;
+
+  const isHomeActive = pathname === "/";
+
   return (
     <Flex
       alignItems="center"
@@ -14,6 +21,11 @@ export const Header = () => {
       zIndex={1000}
     >
       <Logo />
+      {!isHomeActive && (
+        <Link as={NextLink} href="/" ml={6}>
+          <Text variant="body-large">Home</Text>
+        </Link>
+      )}
     </Flex>
   );
 };

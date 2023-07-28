@@ -5,5 +5,6 @@ export const colorsLight = {
     subtle: "#5FC972",
     emphasis: "#000739",
     text: "#281403",
+    success: "#1F8336",
   },
 };

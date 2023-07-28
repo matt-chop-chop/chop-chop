@@ -19,7 +19,8 @@ const baseStyle = defineStyle({
 });
 
 const buttonPrimary = defineStyle({
-  background: "light.subtle",
+  background: "light.surface",
+  color: "light.background",
 
   _active: {
     opacity: 0.4,

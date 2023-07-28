@@ -1,6 +1,5 @@
 import { Hero, RecipeListingGrid } from "@/Components";
 import { siteDescription } from "@/constants";
-import { useRandomRecipe } from "@/hooks";
 
 const Home = () => {
   return (
