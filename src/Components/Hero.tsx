@@ -11,17 +11,18 @@ const Hero = ({ title, message }: HeroProps) => {
     <Flex alignItems="center" flexDirection="column" textAlign="center">
       <Image alt="Chop Chop logo" height="128px" src="/images/logo.png" />
       <Heading
-        variant={["heading-medium", "heading-large", "heading-large"]}
+        as="h1"
         maxWidth={["none", "880px", "880px"]}
         mt={[3, 5, 5]}
+        variant={["heading-medium", "heading-large", "heading-large"]}
       >
         {title}
       </Heading>
       <Text
-        variant={["body", "body-large", "body-large"]}
-        mt={[3, 5, 5]}
         maxWidth={["none", "740px", "740px"]}
+        mt={[3, 5, 5]}
         px={3}
+        variant={["body", "body-large", "body-large"]}
       >
         {message}
       </Text>

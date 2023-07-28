@@ -10,6 +10,7 @@ export const Footer = () => {
       alignItems={["center", "center", "start"]}
       flexDirection="column"
       textAlign={["center", "center", "left"]}
+      mt={8}
       p={4}
     >
       <Image alt="Chop Chop logo" height="64px" src="/images/logo.png" />
