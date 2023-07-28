@@ -1,31 +1,40 @@
 import { defineStyle, defineStyleConfig } from "@chakra-ui/styled-system";
 
 const baseStyle = defineStyle({
-  fontSize: "14px",
-  lineHeight: "20px",
   borderRadius: "4px",
+  fontSize: "14px",
   fontWeight: 500,
-  transitionProperty: "common",
-  transitionDuration: "normal",
+  lineHeight: "20px",
+  padding: "10px 16px",
+
   _focusVisible: {
     boxShadow: "outline",
   },
+
   _disabled: {
-    opacity: 0.4,
+    boxShadow: "none",
     cursor: "not-allowed",
-    boxShadow: "none",
-  },
-  _hover: {
-    _disabled: {
-      bg: "initial",
-    },
-  },
-  _focus: {
-    outline: "none",
-    boxShadow: "none",
+    opacity: 0.4,
   },
 });
 
+const buttonPrimary = defineStyle({
+  background: "light.subtle",
+
+  _active: {
+    opacity: 0.4,
+  },
+
+  _hover: {
+    opacity: 0.8,
+  },
+});
+
+const variants = {
+  primary: buttonPrimary,
+};
+
 export const Button = defineStyleConfig({
   baseStyle,
+  variants,
 });

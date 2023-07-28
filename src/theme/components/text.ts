@@ -21,10 +21,28 @@ const variantBodyLarge = defineStyle({
   lineHeight: "32px",
 });
 
+const variantBodyBold = defineStyle({
+  ...variantBody,
+  fontWeight: 700,
+});
+
+const variantBodySmallBold = defineStyle({
+  ...variantBodySmall,
+  fontWeight: 700,
+});
+
+const variantBodyLargeBold = defineStyle({
+  ...variantBodyLarge,
+  fontWeight: 700,
+});
+
 const variants = {
   body: variantBody,
   "body-small": variantBodySmall,
   "body-large": variantBodyLarge,
+  "body-bold": variantBodyBold,
+  "body-small-bold": variantBodySmallBold,
+  "body-large-bold": variantBodyLargeBold,
 };
 
 export const Text = defineStyleConfig({

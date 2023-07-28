@@ -21,7 +21,7 @@ const Layout = ({ children }: LayoutProps) => {
         <Container
           centerContent
           maxWidth="1320px"
-          pt={["108px", "108px", "140px"]}
+          py={["108px", "108px", "140px"]}
         >
           <Flex flexDirection="column" width="100%">
             {children}
