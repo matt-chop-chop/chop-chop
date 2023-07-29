@@ -17,7 +17,7 @@ type ApiQueryState = {
 };
 
 type RecipeQueryState = {
-  recipes: Recipe[];
+  recipes: string[];
   error?: Error;
   loading: boolean;
 };
@@ -36,7 +36,11 @@ export const useFilterByCategory = (category: string): RecipeQueryState => {
 
   if (isSuccess && data?.data?.meals) {
     const recipes = data ? convertApiRecipesToRecipes(data.data.meals) : [];
-    return { recipes, loading, error: getReactQueryError(error) };
+    return {
+      recipes: recipes.map((recipe) => recipe.id),
+      loading,
+      error: getReactQueryError(error),
+    };
   }
 
   if (isSuccess && !data?.data?.meals) {

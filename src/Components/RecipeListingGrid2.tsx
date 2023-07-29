@@ -6,129 +6,28 @@ import {
   useFilterByIngredient,
 } from "@/hooks";
 import { useEffect, useState } from "react";
+import RecipeListingId from "./RecipeListingId";
 
 type RecipeListingGrid2Props = {
-  category: string;
-  ingredient: string;
-  area: string;
+  recipes: string[];
+  loading: boolean;
 };
 
-const RecipeListingGrid2 = ({
-  ingredient,
-  category,
-  area,
-}: RecipeListingGrid2Props) => {
-  const [recipes, setRecipes] = useState<Recipe[]>([]);
-
-  const {
-    recipes: recipesByArea,
-    loading: loadingArea,
-    error: errorArea,
-  } = useFilterByArea(area);
-  const {
-    recipes: recipesByCategory,
-    loading: loadingCategory,
-    error: errorCategory,
-  } = useFilterByCategory(category);
-  const {
-    recipes: recipesByIngredient,
-    loading: loadingIngredient,
-    error: errorIngredient,
-  } = useFilterByIngredient(ingredient);
-
-  if (loadingArea || loadingCategory || loadingIngredient) {
-    return <LoadingCard />;
-  }
-
-  if (errorIngredient) {
-    return <ErrorCard error={errorIngredient} />;
-  }
-
-  if (errorCategory) {
-    return <ErrorCard error={errorCategory} />;
-  }
-
-  if (errorArea) {
-    return <ErrorCard error={errorArea} />;
-  }
-
-  if (
-    recipesByArea.length === 0 &&
-    recipesByCategory.length === 0 &&
-    recipesByIngredient.length === 0
-  ) {
-    setRecipes([]);
-  }
-
-  if (
-    recipesByArea.length > 0 &&
-    recipesByCategory.length === 0 &&
-    recipesByIngredient.length === 0
-  ) {
-    setRecipes(recipesByArea);
-  }
-
-  if (
-    recipesByArea.length === 0 &&
-    recipesByCategory.length > 0 &&
-    recipesByIngredient.length === 0
-  ) {
-    setRecipes(recipesByCategory);
-  }
-
-  if (
-    recipesByArea.length === 0 &&
-    recipesByCategory.length === 0 &&
-    recipesByIngredient.length > 0
-  ) {
-    setRecipes(recipesByIngredient);
-  }
-
-  if (
-    recipesByArea.length > 0 &&
-    recipesByCategory.length === 0 &&
-    recipesByIngredient.length === 0
-  ) {
-    setRecipes(recipesByArea);
-  }
-
-  if (
-    recipesByArea.length > 0 &&
-    recipesByCategory.length > 0 &&
-    recipesByIngredient.length === 0
-  ) {
-    setRecipes(recipesByArea.filter((x) => recipesByCategory.includes(x)));
-  }
-
-  if (
-    recipesByArea.length > 0 &&
-    recipesByCategory.length === 0 &&
-    recipesByIngredient.length > 0
-  ) {
-    setRecipes(recipesByArea.filter((x) => recipesByIngredient.includes(x)));
-  }
-
-  // if (
-  //   recipesByArea.length === 0 &&
-  //   recipesByCategory.length > 0 &&
-  //   recipesByIngredient.length > 0
-  // ) {
-  //   setRecipes(
-  //     recipesByCategory.filter((x) => recipesByIngredient.includes(x))
-  //   );
+const RecipeListingGrid2 = ({ recipes, loading }: RecipeListingGrid2Props) => {
+  // if (loading) {
+  //   return <LoadingCard />;
   // }
 
-  // if (
-  //   recipesByArea.length > 0 &&
-  //   recipesByCategory.length > 0 &&
-  //   recipesByIngredient.length > 0
-  // ) {
-  //   const recipesByAreaAndCategory = recipesByArea.filter((x) =>
-  //     recipesByCategory.includes(x)
-  //   );
-  //   setRecipes(
-  //     recipesByAreaAndCategory.filter((x) => recipesByIngredient.includes(x))
-  //   );
+  // if (errorIngredient) {
+  //   return <ErrorCard error={errorIngredient} />;
+  // }
+
+  // if (errorCategory) {
+  //   return <ErrorCard error={errorCategory} />;
+  // }
+
+  // if (errorArea) {
+  //   return <ErrorCard error={errorArea} />;
   // }
 
   return (
@@ -143,8 +42,8 @@ const RecipeListingGrid2 = ({
       mt={[6, 8, 8]}
       rowGap={[6, 8, 8]}
     >
-      {recipes.map((recipe: Recipe, index: number) => (
-        <RecipeListing key={index} recipe={recipe} />
+      {recipes.map((recipe: string, index: number) => (
+        <RecipeListingId key={index} id={recipe} />
       ))}
     </Grid>
   );

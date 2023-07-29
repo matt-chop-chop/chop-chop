@@ -18,13 +18,16 @@ type RecipeQueryState = {
   loading: boolean;
 };
 
-export const useRecipe = (): RecipeQueryState => {
+export const useRecipe = (id?: string): RecipeQueryState => {
   const router = useRouter();
-  const id = router.query["id"];
+  const _id = router.query["id"];
 
-  const response: ApiQueryState = useQuery([`recipe-${id}`], async () => {
-    return await axios.get(`${apiUrl}/lookup.php?i=${id}`);
-  });
+  const response: ApiQueryState = useQuery(
+    [`recipe-${id ? id : _id}`],
+    async () => {
+      return await axios.get(`${apiUrl}/lookup.php?i=${id ? id : _id}`);
+    }
+  );
 
   const { data, isLoading: loading, error, isSuccess } = response;
 

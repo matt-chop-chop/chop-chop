@@ -3,9 +3,18 @@ import {
   RecipeListingGrid,
   ReactSelect,
   RecipeListingGrid2,
+  LoadingCard,
 } from "@/Components";
 import { siteDescription } from "@/constants";
-import { useAreas, useCategories, useIngredients } from "@/hooks";
+import {
+  useAreas,
+  useCategories,
+  useFilterByArea,
+  useFilterByCategory,
+  useFilterByIngredient,
+  useIngredients,
+} from "@/hooks";
+import { useFilteredRecipes } from "@/hooks/useFilteredRecipes";
 import { Flex, FormControl, FormLabel, Heading } from "@chakra-ui/react";
 import { useState } from "react";
 
@@ -18,9 +27,11 @@ const Home = () => {
   const [ingredient, setIngredient] = useState("None");
   const [category, setCategory] = useState("None");
 
-  categories.unshift({ name: "None" });
-  areas.unshift({ name: "None" });
-  ingredients.unshift({ name: "None" });
+  const recipes = useFilteredRecipes(area, category, ingredient);
+
+  // categories.unshift({ name: "None" });
+  // areas.unshift({ name: "None" });
+  // ingredients.unshift({ name: "None" });
 
   return (
     <>
@@ -37,7 +48,9 @@ const Home = () => {
             options={ingredients.map((ingredient) => {
               return { ...ingredient, type: "i" };
             })}
-            onSelectedChange={(ingredient) => setIngredient(ingredient)}
+            onSelectedChange={(ingredient) => {
+              setIngredient(ingredient);
+            }}
           />
         </FormControl>
         <FormControl mt={5}>
@@ -48,7 +61,9 @@ const Home = () => {
             options={categories.map((category) => {
               return { ...category, type: "c" };
             })}
-            onSelectedChange={(category) => setCategory(category)}
+            onSelectedChange={(category) => {
+              setCategory(category);
+            }}
           />
         </FormControl>
         <FormControl mt={5}>
@@ -59,7 +74,9 @@ const Home = () => {
             options={areas.map((area) => {
               return { ...area, type: "a" };
             })}
-            onSelectedChange={(area) => setArea(area)}
+            onSelectedChange={(area) => {
+              setArea(area);
+            }}
           />
         </FormControl>
       </Flex>
@@ -67,9 +84,8 @@ const Home = () => {
         <RecipeListingGrid />
       ) : (
         <RecipeListingGrid2
-          category={category}
-          ingredient={ingredient}
-          area={area}
+          recipes={recipes}
+          // loading={loadingArea || loadingCategory || loadingIngredient}
         />
       )}
     </>
