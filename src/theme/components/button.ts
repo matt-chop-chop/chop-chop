@@ -19,7 +19,7 @@ const baseStyle = defineStyle({
 });
 
 const buttonPrimary = defineStyle({
-  background: "light.surface",
+  background: "light.emphasis",
   color: "light.background",
 
   _active: {

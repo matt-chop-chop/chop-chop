@@ -10,7 +10,7 @@ type RecipeHeaderProps = {
 const RecipeHeader = ({ recipe }: RecipeHeaderProps) => {
   return (
     <Flex
-      borderBottom="2px solid var(--chakra-colors-light-emphasis)"
+      borderBottom="2px solid var(--chakra-colors-light-text)"
       flexDirection="column"
       p={4}
     >

@@ -5,8 +5,8 @@ const baseStyle = defineStyle((props) => {
 
   return {
     bg: "light.background",
-    boxShadow: "0px 1px 5px 1px var(--chakra-colors-light-emphasis)",
-    color: "light.emphasis",
+    boxShadow: "0px 1px 5px 1px var(--chakra-colors-light-text)",
+    color: "light.text",
     maxWidth: "20rem",
     paddingX: "3",
     paddingY: "2",

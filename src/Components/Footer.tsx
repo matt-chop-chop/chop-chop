@@ -12,6 +12,7 @@ export const Footer = () => {
       textAlign={["center", "center", "left"]}
       mt={8}
       p={4}
+      width="100%"
     >
       <Image alt="Chop Chop logo" height="64px" src="/images/logo.png" />
       <Text variant="body-small" mt={4} width={["80%", "80%", "40%"]}>

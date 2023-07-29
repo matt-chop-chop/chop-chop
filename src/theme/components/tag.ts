@@ -2,7 +2,7 @@ import { defineStyle, defineStyleConfig } from "@chakra-ui/react";
 
 const baseStyle = defineStyle({
   container: {
-    bg: "light.surface",
+    bg: "light.emphasis",
     borderRadius: "16px",
     color: "light.background",
     fontSize: "13px",

@@ -17,7 +17,7 @@ const RecipeListing = ({ recipe }: RecipeListingProps) => {
     >
       <Flex
         background="var(--chakra-colors-light-background)"
-        border="2px solid var(--chakra-colors-light-emphasis)"
+        border="2px solid var(--chakra-colors-light-text)"
         borderRadius={4}
         flexDirection="column"
         height="100%"
@@ -26,7 +26,7 @@ const RecipeListing = ({ recipe }: RecipeListingProps) => {
         transition="transform 250ms ease-out"
         width="100%"
         _hover={{
-          border: "2px solid var(--chakra-colors-light-surface)",
+          border: "2px solid var(--chakra-colors-light-emphasis)",
           cursor: "pointer",
           transition: "transform 250ms ease-in",
           transform: "scale(1.01)",

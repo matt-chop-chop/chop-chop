@@ -26,7 +26,7 @@ const Recipe = () => {
         <IngredientList ingredients={recipe.ingredients} />
         <Method instructions={recipe.instructions} />
         {recipe.youtube.length > 0 && (
-          <Box border="1px solid var(--chakra-colors-light-emphasis)" mt="80px">
+          <Box border="1px solid var(--chakra-colors-light-text)" mt="80px">
             <AspectRatio maxWidth="100%" ratio={16 / 9}>
               <iframe
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

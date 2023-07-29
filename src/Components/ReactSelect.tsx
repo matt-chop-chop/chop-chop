@@ -23,32 +23,32 @@ const chakraStyles: StylesConfig<
   }),
   menuList: (provided) => ({
     ...provided,
-    background: "var(--chakra-colors-light-emphasis)",
+    background: "var(--chakra-colors-light-text)",
     borderRadius: "none",
     padding: 0,
   }),
   option: (provided, { isFocused }) => ({
     ...provided,
     background: isFocused
-      ? "var(--chakra-colors-light-surface)"
-      : "var(--chakra-colors-light-emphasis)",
+      ? "var(--chakra-colors-light-emphasis)"
+      : "var(--chakra-colors-light-text)",
     color: "var(--chakra-colors-light-background)",
     cursor: "pointer",
     fontSize: "16px",
     fontWeight: 400,
     lineHeight: "28px",
     _hover: {
-      background: "var(--chakra-colors-light-surface)",
+      background: "var(--chakra-colors-light-emphasis)",
     },
   }),
   control: (provided, { isFocused }) => {
-    const borderColor = isFocused ? "var(--chakra-colors-light-surface)" : "";
+    const borderColor = isFocused ? "var(--chakra-colors-light-emphasis)" : "";
     return {
       background: "var(--chakra-colors-light-background)",
-      border: "1px solid var(--chakra-colors-light-emphasis)",
+      border: "1px solid var(--chakra-colors-light-text)",
       borderColor,
       borderRadius: "4px",
-      color: "var(--chakra-colors-light-emphasis)",
+      color: "var(--chakra-colors-light-text)",
       fontSize: "16px",
       fontWeight: 400,
       lineHeight: "28px",
