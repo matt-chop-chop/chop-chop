@@ -24,9 +24,11 @@ export const useRandomRecipe = (key: number): RandomRecipeQueryState => {
   );
 
   const { data, isLoading: loading, error } = response;
-  console.log(data?.data.meals[0]);
 
-  const recipe = data ? convertApiRecipeToRecipe(data.data?.meals[0]) : null;
+  const recipe =
+    data && data?.data?.meals
+      ? convertApiRecipeToRecipe(data.data?.meals[0])
+      : null;
 
   return { recipe, loading, error: getReactQueryError(error) };
 };

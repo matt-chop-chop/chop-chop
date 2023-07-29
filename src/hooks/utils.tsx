@@ -73,6 +73,12 @@ const parseIngredients = (apiRecipe: ApiRecipe): Ingredient[] => {
   return ingredients;
 };
 
+export const convertApiRecipesToRecipes = (
+  apiRecipes: ApiRecipe[]
+): Recipe[] => {
+  return apiRecipes.map((apiRecipe) => convertApiRecipeToRecipe(apiRecipe));
+};
+
 export const convertApiRecipeToRecipe = (apiRecipe: ApiRecipe): Recipe => {
   const ingredients = parseIngredients(apiRecipe);
   const tags = apiRecipe?.strTags ? apiRecipe.strTags.split(",") : [];
@@ -98,4 +104,31 @@ export const convertApiRecipeToRecipe = (apiRecipe: ApiRecipe): Recipe => {
     time: parseCookingTime(apiRecipe?.strInstructions || ""),
     youtube: apiRecipe?.strYoutube || "",
   };
+};
+
+export const convertApiCategoriesToCategories = (
+  apiCategories: ApiCategory[]
+): { name: string }[] => {
+  return apiCategories.map((apiCategory) => {
+    return { name: apiCategory?.strCategory || "" };
+  });
+};
+
+export const convertApiAreasToAreas = (
+  apiAreas: ApiArea[]
+): { name: string }[] => {
+  return apiAreas.map((apiArea) => {
+    return { name: apiArea?.strArea || "" };
+  });
+};
+
+export const convertApiIngredientsToIngredients = (
+  apiIngredients: ApiIngredient[]
+): SelectableIngredient[] => {
+  return apiIngredients.map((apiIngredient) => {
+    return {
+      name: apiIngredient?.strIngredient || "",
+      description: apiIngredient?.strDescription || "",
+    };
+  });
 };

@@ -1,11 +1,10 @@
 import { checkboxAnatomy } from "@chakra-ui/anatomy";
 import { createMultiStyleConfigHelpers } from "@chakra-ui/react";
-import { mode } from "@chakra-ui/theme-tools";
 
 const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(checkboxAnatomy.keys);
 
-const baseStyle = definePartsStyle((props) => {
+const baseStyle = definePartsStyle(() => {
   return {
     control: {
       borderColor: "light.surface",

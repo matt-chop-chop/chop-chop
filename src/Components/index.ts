@@ -9,4 +9,6 @@ export { default as MethodStep } from "./MethodStep";
 export { default as RandomRecipeListing } from "./RandomRecipeListing";
 export { default as RecipeListing } from "./RecipeListing";
 export { default as RecipeListingGrid } from "./RecipeListingGrid";
+export { default as RecipeListingGrid2 } from "./RecipeListingGrid2";
+export { default as ReactSelect } from "./ReactSelect";
 export { default as Toast } from "./Toast";

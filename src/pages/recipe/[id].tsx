@@ -159,6 +159,11 @@ const Recipe = () => {
             boxSize={5}
             cursor="pointer"
             onClick={() => download(`${recipe.name}.txt`, recipe)}
+            transition="transform 250ms ease-out"
+            _hover={{
+              transition: "transform 250ms ease-in",
+              transform: "scale(1.5)",
+            }}
           />
         </Flex>
 
@@ -250,7 +255,18 @@ const Recipe = () => {
             </AspectRatio>
           </Box>
         )}
-        <Link as={NextLink} href={recipe.source} isExternal mt={4}>
+        <Link
+          as={NextLink}
+          href={recipe.source}
+          isExternal
+          mt={4}
+          width="fit-content"
+          transition="transform 250ms ease-out"
+          _hover={{
+            transition: "transform 250ms ease-in",
+            transform: "scale(1.1)",
+          }}
+        >
           Click to see the original recipe source
         </Link>
       </Flex>

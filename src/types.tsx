@@ -56,8 +56,44 @@ type ApiRecipe = {
 
 type ApiMeal = {
   data: {
-    meals: ApiRecipe[];
+    meals: ApiRecipe[] | null;
   };
+};
+
+type ApiCategory = {
+  strCategory: string | null;
+};
+
+type ApiCategories = {
+  data: {
+    meals: ApiCategory[];
+  };
+};
+
+type ApiArea = {
+  strArea: string | null;
+};
+
+type ApiAreas = {
+  data: {
+    meals: ApiArea[];
+  };
+};
+
+type ApiIngredient = {
+  strIngredient: string | null;
+  strDescription: string | null;
+};
+
+type ApiIngredients = {
+  data: {
+    meals: ApiIngredient[];
+  };
+};
+
+type SelectableIngredient = {
+  name: string;
+  description: string;
 };
 
 type Ingredient = {

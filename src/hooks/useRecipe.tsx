@@ -12,13 +12,13 @@ type ApiQueryState = {
   isSuccess: boolean;
 };
 
-type RandomRecipeQueryState = {
+type RecipeQueryState = {
   recipe: Recipe | null;
   error?: Error;
   loading: boolean;
 };
 
-export const useRecipe = (): RandomRecipeQueryState => {
+export const useRecipe = (): RecipeQueryState => {
   const router = useRouter();
   const id = router.query["id"];
 
