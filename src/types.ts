@@ -60,43 +60,7 @@ type ApiMeal = {
   };
 };
 
-type ApiCategory = {
-  strCategory: string | null;
-};
-
-type ApiCategories = {
-  data: {
-    meals: ApiCategory[];
-  };
-};
-
-type ApiArea = {
-  strArea: string | null;
-};
-
-type ApiAreas = {
-  data: {
-    meals: ApiArea[];
-  };
-};
-
-type ApiIngredient = {
-  strIngredient: string | null;
-  strDescription: string | null;
-};
-
-type ApiIngredients = {
-  data: {
-    meals: ApiIngredient[];
-  };
-};
-
-type SelectableIngredient = {
-  name: string;
-  description: string;
-};
-
-type Ingredient = {
+type RecipeIngredient = {
   name: string;
   measurement: string;
   image: string;
@@ -107,7 +71,7 @@ type Recipe = {
   area: string;
   category: string;
   image: string;
-  ingredients: Ingredient[];
+  ingredients: RecipeIngredient[];
   instructions: string[];
   name: string;
   thumbnail: string;
@@ -116,4 +80,40 @@ type Recipe = {
   ingredientCount: number;
   time: number;
   youtube: string;
+};
+
+type ApiCategory = {
+  strCategory: string | null;
+};
+
+type ApiCategories = {
+  data: {
+    meals: ApiCategory[] | null;
+  };
+};
+
+type ApiArea = {
+  strArea: string | null;
+};
+
+type ApiAreas = {
+  data: {
+    meals: ApiArea[] | null;
+  };
+};
+
+type ApiIngredient = {
+  strIngredient: string | null;
+  strDescription: string | null;
+};
+
+type ApiIngredients = {
+  data: {
+    meals: ApiIngredient[] | null;
+  };
+};
+
+type Ingredient = {
+  name: string;
+  description: string;
 };

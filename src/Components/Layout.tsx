@@ -14,13 +14,13 @@ const Layout = ({ children }: LayoutProps) => {
       width="100%"
     >
       <Flex flexDirection="column" width="100%">
-        <Container centerContent p={0}>
+        <Container centerContent maxWidth="100%" p={0}>
           <Header />
         </Container>
 
         <Container
           centerContent
-          maxWidth="1320px"
+          maxWidth="100%"
           py={["108px", "108px", "140px"]}
         >
           <Flex flexDirection="column" width="100%">

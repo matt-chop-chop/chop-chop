@@ -8,7 +8,7 @@ import {
   Text,
   Tooltip,
 } from "./components";
-import { breakpoints, colorsDark, colorsLight, fonts } from "./foundations";
+import { breakpoints, colorsLight, fonts } from "./foundations";
 import { styles } from "./styles";
 
 export const config: ThemeConfig = {
@@ -18,7 +18,6 @@ export const config: ThemeConfig = {
 
 const colors = {
   ...colorsLight,
-  ...colorsDark,
 };
 
 export const overrides = {

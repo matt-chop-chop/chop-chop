@@ -37,7 +37,7 @@ const RecipeListingId = ({ id }: RecipeListingProps) => {
       >
         {recipe?.thumbnail ? (
           <Image
-            alt="a recipe listing thumbnail image"
+            alt="A recipe listing thumbnail image"
             height="200px"
             objectFit="cover"
             src={recipe.thumbnail}

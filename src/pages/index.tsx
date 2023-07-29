@@ -6,14 +6,7 @@ import {
   LoadingCard,
 } from "@/Components";
 import { siteDescription } from "@/constants";
-import {
-  useAreas,
-  useCategories,
-  useFilterByArea,
-  useFilterByCategory,
-  useFilterByIngredient,
-  useIngredients,
-} from "@/hooks";
+import { useAreas, useCategories, useIngredients } from "@/hooks";
 import { useFilteredRecipes } from "@/hooks/useFilteredRecipes";
 import { Flex, FormControl, FormLabel, Heading } from "@chakra-ui/react";
 import { useState } from "react";

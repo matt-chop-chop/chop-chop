@@ -12,6 +12,8 @@ const ErrorCard = ({ error }: ErrorCardProps) => {
   const { pathname } = router;
   const id = router.query["id"];
 
+  if (!error) return null;
+
   return (
     <Flex
       alignItems="center"

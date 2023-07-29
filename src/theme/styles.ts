@@ -8,10 +8,6 @@ export const styles = {
     "html, body": {
       background: "light.background",
       color: "light.emphasis",
-
-      _dark: {
-        backgroundColor: "dark.background",
-      },
     },
   },
 };

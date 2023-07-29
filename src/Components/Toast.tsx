@@ -1,17 +1,18 @@
 import React from "react";
-import { Flex, Image, Text } from "@chakra-ui/react";
+import { Flex, Text } from "@chakra-ui/react";
 import { CloseIcon } from "@chakra-ui/icons";
 
-export interface SuccessToastProps {
+export interface ToastProps {
   text: string;
   onClose?: () => void;
   background?: string;
 }
+
 const Toast = ({
   text,
   onClose,
   background = "var(--chakra-colors-light-success)",
-}: SuccessToastProps) => {
+}: ToastProps) => {
   return (
     <Flex
       alignItems="center"
@@ -19,8 +20,7 @@ const Toast = ({
       border="none"
       borderRadius={4}
       justifyContent="space-between"
-      pl={5}
-      pr={2}
+      px={5}
       py={2}
       width="260px"
     >

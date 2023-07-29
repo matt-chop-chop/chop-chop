@@ -2,7 +2,6 @@ import { useQuery } from "react-query";
 import axios from "axios";
 import { convertApiRecipeToRecipe, getReactQueryError } from "./utils";
 import { apiUrl } from "@/constants";
-import { useParams } from "react-router-dom";
 import { useRouter } from "next/router";
 
 type ApiQueryState = {
