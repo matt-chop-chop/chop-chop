@@ -7,6 +7,7 @@ type RecipeDetailsGridProps = {
   category: string;
   ingredientCount: number;
   time: number;
+  gridTemplateColumns?: string[];
 };
 
 const RecipeDetailsGrid = ({
@@ -14,16 +15,13 @@ const RecipeDetailsGrid = ({
   category,
   ingredientCount,
   time,
+  gridTemplateColumns = ["repeat(2, 1fr)", "repeat(2, 1fr)", "repeat(4, 1fr)"],
 }: RecipeDetailsGridProps) => {
   return (
     <Grid
       columnGap={[8, 8, 6]}
       gridAutoRows="1fr"
-      gridTemplateColumns={[
-        "repeat(2, 1fr)",
-        "repeat(2, 1fr)",
-        "repeat(4, 1fr)",
-      ]}
+      gridTemplateColumns={gridTemplateColumns}
       mt={8}
       rowGap={8}
     >

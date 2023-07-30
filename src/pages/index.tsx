@@ -2,7 +2,6 @@ import {
   Hero,
   RecipeListingGrid,
   ReactSelect,
-  RecipeListingGrid2,
   LoadingCard,
 } from "@/Components";
 import { siteDescription } from "@/constants";
@@ -20,7 +19,7 @@ const Home = () => {
   const [ingredient, setIngredient] = useState("None");
   const [category, setCategory] = useState("None");
 
-  const recipes = useFilteredRecipes(area, category, ingredient);
+  const { loading, recipes } = useFilteredRecipes(area, category, ingredient);
 
   // categories.unshift({ name: "None" });
   // areas.unshift({ name: "None" });
@@ -73,12 +72,10 @@ const Home = () => {
           />
         </FormControl>
       </Flex>
-      {category === "None" && area === "None" && ingredient === "None" ? (
-        <RecipeListingGrid />
-      ) : (
-        <RecipeListingGrid2
+      {!loading && (
+        <RecipeListingGrid
+          numberOfListings={recipes.length > 0 ? recipes.length : 12}
           recipes={recipes}
-          // loading={loadingArea || loadingCategory || loadingIngredient}
         />
       )}
     </>

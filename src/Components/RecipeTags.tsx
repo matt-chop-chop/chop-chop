@@ -8,7 +8,7 @@ const RecipeTags = ({ tags }: RecipeTagsProps) => {
   if (tags.length === 0) return null;
 
   return (
-    <Flex mt={1}>
+    <Flex flexWrap="wrap" mt={1}>
       {tags.map((tag: string, index: number) => (
         <Tag key={index}>{tag}</Tag>
       ))}

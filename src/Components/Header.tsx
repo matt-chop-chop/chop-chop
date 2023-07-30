@@ -21,21 +21,23 @@ export const Header = () => {
       zIndex={1000}
     >
       <Container maxWidth="1320px" width="100%">
-        <Logo />
-        {!isHomeActive && (
-          <Link
-            as={NextLink}
-            href="/"
-            ml={6}
-            transition="transform 250ms ease-out"
-            _hover={{
-              transition: "transform 250ms ease-in",
-              transform: "scale(1.1)",
-            }}
-          >
-            <Text variant="body-large">Home</Text>
-          </Link>
-        )}
+        <Flex alignItems="center">
+          <Logo />
+          {!isHomeActive && (
+            <Link
+              as={NextLink}
+              href="/"
+              ml={6}
+              transition="transform 250ms ease-out"
+              _hover={{
+                transition: "transform 250ms ease-in",
+                transform: "scale(1.1)",
+              }}
+            >
+              <Text variant="body-large">Home</Text>
+            </Link>
+          )}
+        </Flex>
       </Container>
     </Flex>
   );

@@ -5,9 +5,15 @@ import { useRouter } from "next/router";
 
 type ErrorCardProps = {
   error: Error;
+  showBorder?: boolean;
+  mt?: string;
 };
 
-const ErrorCard = ({ error }: ErrorCardProps) => {
+const ErrorCard = ({
+  error,
+  showBorder = true,
+  mt = "0px",
+}: ErrorCardProps) => {
   const router = useRouter();
   const { pathname } = router;
   const id = router.query["id"];
@@ -18,11 +24,12 @@ const ErrorCard = ({ error }: ErrorCardProps) => {
     <Flex
       alignItems="center"
       background="var(--chakra-colors-light-background)"
-      border="2px solid var(--chakra-colors-light-text)"
+      border={showBorder ? "2px solid var(--chakra-colors-light-text)" : ""}
       borderRadius={4}
       flexDirection="column"
       justifyContent="center"
       minHeight="250px"
+      mt={mt}
       p={4}
       width="100%"
     >

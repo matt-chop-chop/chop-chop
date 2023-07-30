@@ -125,5 +125,8 @@ export const useFilteredRecipes = (
     recipesByIngredient
   );
 
-  return recipes;
+  return {
+    recipes,
+    loading: loadingArea || loadingCategory || loadingIngredient,
+  };
 };

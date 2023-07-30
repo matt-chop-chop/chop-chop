@@ -8,15 +8,21 @@ const Recipe = () => {
   const { recipe, loading, error } = useRecipe();
 
   if (loading) {
-    return <LoadingCard />;
+    return <LoadingCard showBorder={false} mt="100px" />;
   }
 
   if (error) {
-    return <ErrorCard error={error} />;
+    return <ErrorCard error={error} showBorder={false} mt="100px" />;
   }
 
   if (!recipe) {
-    return <ErrorCard error={new Error("Recipe could not be found.")} />;
+    return (
+      <ErrorCard
+        error={new Error("Recipe could not be found.")}
+        showBorder={false}
+        mt="100px"
+      />
+    );
   }
 
   return (
