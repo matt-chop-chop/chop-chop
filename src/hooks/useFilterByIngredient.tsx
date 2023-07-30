@@ -1,6 +1,6 @@
 import { useQuery } from "react-query";
 import axios from "axios";
-import { convertApiRecipesToRecipes, getReactQueryError } from "./utils";
+import { getReactQueryError } from "./utils";
 import { apiUrl } from "@/constants";
 
 type ApiQueryState = {
