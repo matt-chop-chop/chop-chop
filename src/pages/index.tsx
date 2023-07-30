@@ -5,7 +5,7 @@ import { Box, Flex, Heading } from "@chakra-ui/react";
 import { useState } from "react";
 
 const Home = () => {
-  let {
+  const {
     ingredients,
     loading: ingredientsLoading,
     error: ingredientsError,

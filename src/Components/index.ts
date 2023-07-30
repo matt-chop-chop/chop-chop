@@ -11,6 +11,7 @@ export { default as LoadingCard } from "./LoadingCard";
 export { default as Logo } from "./Logo";
 export { default as Method } from "./Method";
 export { default as MethodStep } from "./MethodStep";
+export { default as NotFoundState } from "./NotFoundState";
 export { default as RandomRecipeListing } from "./RandomRecipeListing";
 export { default as RecipeDetailsGrid } from "./RecipeDetailsGrid";
 export { default as RecipeHeader } from "./RecipeHeader";
