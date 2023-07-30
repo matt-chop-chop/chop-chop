@@ -1,0 +1,131 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RecipeListingGrid renders as expected when showRandom is false 1`] = `
+<Grid
+  columnGap={
+    [
+      0,
+      8,
+      6,
+    ]
+  }
+  gridAutoRows="1fr"
+  gridTemplateColumns={
+    [
+      "repeat(1, 1fr)",
+      "repeat(2, 1fr)",
+      "repeat(3, 1fr)",
+    ]
+  }
+  mt={
+    [
+      6,
+      8,
+      8,
+    ]
+  }
+  rowGap={
+    [
+      6,
+      8,
+      8,
+    ]
+  }
+>
+  <RecipeListingFromData
+    id="123"
+    key="0"
+  />
+  <RecipeListingFromData
+    id="456"
+    key="1"
+  />
+  <RecipeListingFromData
+    id="789"
+    key="2"
+  />
+</Grid>
+`;
+
+exports[`RecipeListingGrid renders as expected when showRandom is true 1`] = `
+<Grid
+  columnGap={
+    [
+      0,
+      8,
+      6,
+    ]
+  }
+  gridAutoRows="1fr"
+  gridTemplateColumns={
+    [
+      "repeat(1, 1fr)",
+      "repeat(2, 1fr)",
+      "repeat(3, 1fr)",
+    ]
+  }
+  mt={
+    [
+      6,
+      8,
+      8,
+    ]
+  }
+  rowGap={
+    [
+      6,
+      8,
+      8,
+    ]
+  }
+>
+  <RandomRecipeListing
+    key="0"
+    listingIndex={0}
+  />
+  <RandomRecipeListing
+    key="1"
+    listingIndex={1}
+  />
+  <RandomRecipeListing
+    key="2"
+    listingIndex={2}
+  />
+  <RandomRecipeListing
+    key="3"
+    listingIndex={3}
+  />
+  <RandomRecipeListing
+    key="4"
+    listingIndex={4}
+  />
+  <RandomRecipeListing
+    key="5"
+    listingIndex={5}
+  />
+  <RandomRecipeListing
+    key="6"
+    listingIndex={6}
+  />
+  <RandomRecipeListing
+    key="7"
+    listingIndex={7}
+  />
+  <RandomRecipeListing
+    key="8"
+    listingIndex={8}
+  />
+  <RandomRecipeListing
+    key="9"
+    listingIndex={9}
+  />
+  <RandomRecipeListing
+    key="10"
+    listingIndex={10}
+  />
+  <RandomRecipeListing
+    key="11"
+    listingIndex={11}
+  />
+</Grid>
+`;

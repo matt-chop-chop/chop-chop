@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EmptyState renders as expected 1`] = `
+<Flex
+  alignItems="center"
+  background="var(--chakra-colors-light-background)"
+  border="2px solid var(--chakra-colors-light-text)"
+  borderRadius={4}
+  flexDirection="column"
+  justifyContent="center"
+  minHeight="250px"
+  p={4}
+  width="100%"
+>
+  <Text
+    textAlign="center"
+    variant="body-bold"
+  >
+    No matching recipes found
+  </Text>
+  <Text
+    mt={2}
+    variant="body"
+  >
+    Try updating the selected parameters
+  </Text>
+</Flex>
+`;

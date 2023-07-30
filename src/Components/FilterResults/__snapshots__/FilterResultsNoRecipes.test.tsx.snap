@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilterResults renders as expected when no recipes are returned 1`] = `<EmptyState />`;

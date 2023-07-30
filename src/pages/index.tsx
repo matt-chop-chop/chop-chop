@@ -3,6 +3,7 @@ import { siteDescription } from "@/constants";
 import { useAreas, useCategories, useIngredients } from "@/hooks";
 import { Box, Flex, Heading } from "@chakra-ui/react";
 import { useState } from "react";
+import React from "react";
 
 const Home = () => {
   let {

@@ -3,6 +3,7 @@ import { useRecipe } from "@/hooks";
 import { AspectRatio, Box, Flex, Link, Text } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { RecipeHeader } from "@/Components";
+import React from "react";
 
 const Recipe = () => {
   const { recipe, loading, error } = useRecipe();

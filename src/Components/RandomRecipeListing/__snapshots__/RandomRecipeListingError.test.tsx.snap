@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RandomRecipeListing renders as expected when error is returned 1`] = `
+<ErrorCard
+  error={[Error: There was an error]}
+/>
+`;

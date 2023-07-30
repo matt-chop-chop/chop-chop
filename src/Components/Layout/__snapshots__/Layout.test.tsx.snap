@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Layout renders as expected  1`] = `
+<Flex
+  flexDirection="column"
+  height="100vh"
+  justifyContent="space-between"
+  width="100%"
+>
+  <Flex
+    flexDirection="column"
+    width="100%"
+  >
+    <Container
+      centerContent={true}
+      maxWidth="100%"
+      p={0}
+      width="100%"
+    >
+      <Header />
+    </Container>
+    <Container
+      centerContent={true}
+      maxWidth="1320px"
+      py={
+        [
+          "108px",
+          "108px",
+          "140px",
+        ]
+      }
+    >
+      <Flex
+        flexDirection="column"
+        width="100%"
+      >
+        <div>
+          test
+        </div>
+      </Flex>
+    </Container>
+  </Flex>
+  <Container
+    centerContent={true}
+    maxWidth="1320px"
+    p={0}
+    width="100%"
+  >
+    <Footer />
+  </Container>
+</Flex>
+`;

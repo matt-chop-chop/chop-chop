@@ -1,0 +1,172 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorCard renders a link to page relating to the id in the url if pathname is not / 1`] = `
+<Flex
+  alignItems="center"
+  background="var(--chakra-colors-light-background)"
+  border="2px solid var(--chakra-colors-light-text)"
+  borderRadius={4}
+  flexDirection="column"
+  justifyContent="center"
+  minHeight="250px"
+  mt="0px"
+  p={4}
+  width="100%"
+>
+  <Text
+    textAlign="center"
+    variant="body-bold"
+  >
+    <InfoOutlineIcon
+      mr={2}
+    />
+    This recipe could not be loaded due to the following error: "
+    There has been an error.
+    "
+  </Text>
+  <Text
+    mt={2}
+    variant="body"
+  >
+    Try refreshing the page
+  </Text>
+  <Link
+    _hover={
+      {
+        "transform": "scale(1.1)",
+        "transition": "transform 250ms ease-in",
+      }
+    }
+    as={
+      {
+        "$$typeof": Symbol(react.forward_ref),
+        "default": [Circular],
+        "render": [Function],
+      }
+    }
+    href="/"
+    mt={2}
+    transition="transform 250ms ease-out"
+  >
+    <Button
+      variant="primary"
+    >
+      Refresh
+    </Button>
+  </Link>
+</Flex>
+`;
+
+exports[`ErrorCard renders as expected 1`] = `
+<Flex
+  alignItems="center"
+  background="var(--chakra-colors-light-background)"
+  border=""
+  borderRadius={4}
+  flexDirection="column"
+  justifyContent="center"
+  minHeight="250px"
+  mt="12px"
+  p={4}
+  width="100%"
+>
+  <Text
+    textAlign="center"
+    variant="body-bold"
+  >
+    <InfoOutlineIcon
+      mr={2}
+    />
+    This recipe could not be loaded due to the following error: "
+    There has been an error.
+    "
+  </Text>
+  <Text
+    mt={2}
+    variant="body"
+  >
+    Try refreshing the page
+  </Text>
+  <Link
+    _hover={
+      {
+        "transform": "scale(1.1)",
+        "transition": "transform 250ms ease-in",
+      }
+    }
+    as={
+      {
+        "$$typeof": Symbol(react.forward_ref),
+        "default": [Circular],
+        "render": [Function],
+      }
+    }
+    href="/"
+    mt={2}
+    transition="transform 250ms ease-out"
+  >
+    <Button
+      variant="primary"
+    >
+      Refresh
+    </Button>
+  </Link>
+</Flex>
+`;
+
+exports[`ErrorCard renders with default props 1`] = `
+<Flex
+  alignItems="center"
+  background="var(--chakra-colors-light-background)"
+  border="2px solid var(--chakra-colors-light-text)"
+  borderRadius={4}
+  flexDirection="column"
+  justifyContent="center"
+  minHeight="250px"
+  mt="0px"
+  p={4}
+  width="100%"
+>
+  <Text
+    textAlign="center"
+    variant="body-bold"
+  >
+    <InfoOutlineIcon
+      mr={2}
+    />
+    This recipe could not be loaded due to the following error: "
+    There has been an error.
+    "
+  </Text>
+  <Text
+    mt={2}
+    variant="body"
+  >
+    Try refreshing the page
+  </Text>
+  <Link
+    _hover={
+      {
+        "transform": "scale(1.1)",
+        "transition": "transform 250ms ease-in",
+      }
+    }
+    as={
+      {
+        "$$typeof": Symbol(react.forward_ref),
+        "default": [Circular],
+        "render": [Function],
+      }
+    }
+    href="/"
+    mt={2}
+    transition="transform 250ms ease-out"
+  >
+    <Button
+      variant="primary"
+    >
+      Refresh
+    </Button>
+  </Link>
+</Flex>
+`;

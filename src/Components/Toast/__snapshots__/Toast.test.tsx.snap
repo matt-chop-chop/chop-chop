@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toast renders as expected  1`] = `
+<Flex
+  alignItems="center"
+  background="red"
+  border="none"
+  borderRadius={4}
+  justifyContent="space-between"
+  px={5}
+  py={2}
+  width="260px"
+>
+  <Text
+    color="var(--chakra-colors-light-background)"
+    variant="body"
+  >
+    This is a test toast
+  </Text>
+  <CloseIcon
+    boxSize={3}
+    color="var(--chakra-colors-light-background)"
+    cursor="pointer"
+    ml={5}
+    onClick={[MockFunction]}
+  />
+</Flex>
+`;
+
+exports[`Toast renders with default props  1`] = `
+<Flex
+  alignItems="center"
+  background="var(--chakra-colors-light-success)"
+  border="none"
+  borderRadius={4}
+  justifyContent="space-between"
+  px={5}
+  py={2}
+  width="260px"
+>
+  <Text
+    color="var(--chakra-colors-light-background)"
+    variant="body"
+  >
+    This is a test toast
+  </Text>
+</Flex>
+`;

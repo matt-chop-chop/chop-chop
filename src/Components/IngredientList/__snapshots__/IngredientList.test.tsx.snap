@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IngredientList renders as expected  1`] = `
+<Box
+  my={5}
+>
+  <Heading
+    as="h2"
+    mb={4}
+    variant="heading-medium"
+  >
+    Ingredients
+  </Heading>
+  <Flex
+    key="0"
+    width="100%"
+  >
+    <Text
+      ml={
+        [
+          4,
+          6,
+          8,
+        ]
+      }
+      mt={2}
+      variant="body-large"
+    >
+      • 
+      500g
+       
+      Test Ingredient
+    </Text>
+    <Image
+      alt="An ingredient image"
+      maxHeight="50px"
+      ml={4}
+      src="/test"
+    />
+  </Flex>
+  <Flex
+    key="1"
+    width="100%"
+  >
+    <Text
+      ml={
+        [
+          4,
+          6,
+          8,
+        ]
+      }
+      mt={2}
+      variant="body-large"
+    >
+      • 
+      500g
+       
+      Test Ingredient 2
+    </Text>
+    <Image
+      alt="An ingredient image"
+      maxHeight="50px"
+      ml={4}
+      src="/test"
+    />
+  </Flex>
+</Box>
+`;

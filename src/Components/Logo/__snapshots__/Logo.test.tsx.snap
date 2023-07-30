@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Logo renders as expected  1`] = `
+<ForwardRef(Link2)
+  as={
+    {
+      "$$typeof": Symbol(react.forward_ref),
+      "render": [Function],
+    }
+  }
+  href="/"
+  width="fit-content"
+>
+  <Image
+    _hover={
+      {
+        "transform": "scale(1.1)",
+        "transition": "transform 250ms ease-in",
+      }
+    }
+    alt="Chop Chop logo"
+    height="80px"
+    src="/images/logo.png"
+    transition="transform 250ms ease-out"
+  />
+</ForwardRef(Link2)>
+`;

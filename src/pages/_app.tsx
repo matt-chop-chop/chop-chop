@@ -4,6 +4,7 @@ import Head from "next/head";
 import { Layout } from "@/Components";
 import { theme } from "../theme";
 import { QueryClient, QueryClientProvider } from "react-query";
+import React from "react";
 
 const queryClient = new QueryClient();
 
