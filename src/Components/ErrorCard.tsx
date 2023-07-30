@@ -5,22 +5,31 @@ import { useRouter } from "next/router";
 
 type ErrorCardProps = {
   error: Error;
+  showBorder?: boolean;
+  mt?: string;
 };
 
-const ErrorCard = ({ error }: ErrorCardProps) => {
+const ErrorCard = ({
+  error,
+  showBorder = true,
+  mt = "0px",
+}: ErrorCardProps) => {
   const router = useRouter();
   const { pathname } = router;
   const id = router.query["id"];
+
+  if (!error) return null;
 
   return (
     <Flex
       alignItems="center"
       background="var(--chakra-colors-light-background)"
-      border="2px solid var(--chakra-colors-light-emphasis)"
+      border={showBorder ? "2px solid var(--chakra-colors-light-text)" : ""}
       borderRadius={4}
       flexDirection="column"
       justifyContent="center"
       minHeight="250px"
+      mt={mt}
       p={4}
       width="100%"
     >
@@ -32,7 +41,16 @@ const ErrorCard = ({ error }: ErrorCardProps) => {
       <Text mt={2} variant="body">
         Try refreshing the page
       </Text>
-      <Link as={NextLink} href={pathname === "/" ? "/" : `${id}`} mt={2}>
+      <Link
+        as={NextLink}
+        href={pathname === "/" ? "/" : `${id}`}
+        mt={2}
+        transition="transform 250ms ease-out"
+        _hover={{
+          transition: "transform 250ms ease-in",
+          transform: "scale(1.1)",
+        }}
+      >
         <Button variant="primary">Refresh</Button>
       </Link>
     </Flex>

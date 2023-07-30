@@ -2,7 +2,6 @@ import { useQuery } from "react-query";
 import axios from "axios";
 import { convertApiRecipeToRecipe, getReactQueryError } from "./utils";
 import { apiUrl } from "@/constants";
-import { useParams } from "react-router-dom";
 import { useRouter } from "next/router";
 
 type ApiQueryState = {
@@ -12,19 +11,22 @@ type ApiQueryState = {
   isSuccess: boolean;
 };
 
-type RandomRecipeQueryState = {
+type RecipeQueryState = {
   recipe: Recipe | null;
   error?: Error;
   loading: boolean;
 };
 
-export const useRecipe = (): RandomRecipeQueryState => {
+export const useRecipe = (id?: string): RecipeQueryState => {
   const router = useRouter();
-  const id = router.query["id"];
+  const _id = router.query["id"];
 
-  const response: ApiQueryState = useQuery([`recipe-${id}`], async () => {
-    return await axios.get(`${apiUrl}/lookup.php?i=${id}`);
-  });
+  const response: ApiQueryState = useQuery(
+    [`recipe-${id ? id : _id}`],
+    async () => {
+      return await axios.get(`${apiUrl}/lookup.php?i=${id ? id : _id}`);
+    }
+  );
 
   const { data, isLoading: loading, error, isSuccess } = response;
 
@@ -32,7 +34,6 @@ export const useRecipe = (): RandomRecipeQueryState => {
     const recipe = data ? convertApiRecipeToRecipe(data.data.meals[0]) : null;
     return { recipe, loading, error: getReactQueryError(error) };
   }
-
   if (isSuccess && !data?.data?.meals) {
     return {
       recipe: null,

@@ -7,7 +7,7 @@ stages:
 build:
   stage: build
   script:
-    - npm install next
+    - npm install
     - npm run build
 
 lint:

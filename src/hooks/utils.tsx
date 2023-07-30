@@ -8,6 +8,39 @@ export const getReactQueryError = (error?: unknown): Error | undefined => {
   return new Error(`${error}`);
 };
 
+const parseIngredients = (apiRecipe: ApiRecipe): RecipeIngredient[] => {
+  const ingredientKeys = Object.keys(apiRecipe).filter((key) =>
+    key.includes("strIngredient")
+  );
+
+  const measurementKeys = Object.keys(apiRecipe).filter((key) =>
+    key.includes("strMeasure")
+  );
+
+  const _ingredients = ingredientKeys.map((key, index) => {
+    return {
+      name: apiRecipe[key as keyof ApiRecipe] || "",
+      measurement: apiRecipe[measurementKeys[index] as keyof ApiRecipe] || "",
+      image: `https://www.themealdb.com/images/ingredients/${
+        apiRecipe[key as keyof ApiRecipe]
+      }.png`,
+    };
+  });
+
+  const ingredients = _ingredients.filter(
+    (ingredient) => ingredient.name !== ""
+  );
+
+  return ingredients;
+};
+
+const parseInstructions = (instructions: string): string[] => {
+  const instructionsWithDelimiter =
+    instructions.replaceAll(". ", ". @£$") || "";
+  const instructionSteps = instructionsWithDelimiter.split("@£$");
+  return instructionSteps;
+};
+
 const getSeconds = (instructions: string): number => {
   const secondRegEx =
     "[0-9]+(?=sec)|[0-9]+(?= sec)|[0-9]+(?=second)|[0-9]+(?= second)|[0-9]+(?=secs)|[0-9]+(?= secs)|[0-9]+(?=seconds)|[0-9]+(?= seconds)";
@@ -40,52 +73,31 @@ const parseCookingTime = (instructions: string): number => {
 
   const timeAsSeconds =
     getSeconds(_instructions) +
-    getMinutes(instructions) +
+    getMinutes(_instructions) +
     getHours(_instructions);
   const timeAsMinutes = timeAsSeconds / 60;
+
+  // rounded up to the nearest 5 minutes
   const roundedTimeAsMinutes = Math.ceil(timeAsMinutes / 5) * 5;
+
+  // add on a contingency 15 minutes
   return roundedTimeAsMinutes + 15;
 };
 
-const parseIngredients = (apiRecipe: ApiRecipe): Ingredient[] => {
-  const ingredientKeys = Object.keys(apiRecipe).filter((key) =>
-    key.includes("strIngredient")
-  );
+export const convertApiRecipeToRecipe = (
+  apiRecipe: ApiRecipe | null
+): Recipe | null => {
+  if (!apiRecipe) return null;
 
-  const measurementKeys = Object.keys(apiRecipe).filter((key) =>
-    key.includes("strMeasure")
-  );
-
-  const _ingredients = ingredientKeys.map((key, index) => {
-    return {
-      name: apiRecipe[key as keyof ApiRecipe] || "",
-      measurement: apiRecipe[measurementKeys[index] as keyof ApiRecipe] || "",
-      image: `https://www.themealdb.com/images/ingredients/${
-        apiRecipe[key as keyof ApiRecipe]
-      }.png`,
-    };
-  });
-
-  const ingredients = _ingredients.filter(
-    (ingredient) => ingredient.name !== ""
-  );
-
-  return ingredients;
-};
-
-export const convertApiRecipeToRecipe = (apiRecipe: ApiRecipe): Recipe => {
   const ingredients = parseIngredients(apiRecipe);
   const tags = apiRecipe?.strTags ? apiRecipe.strTags.split(",") : [];
-
-  const instructionsWithDelimiter =
-    apiRecipe?.strInstructions?.replaceAll(". ", ". @£$") || "";
-  const instructions = instructionsWithDelimiter.split("@£$");
+  const instructions = parseInstructions(apiRecipe?.strInstructions || "");
 
   return {
     id: apiRecipe?.idMeal || "",
     area: apiRecipe?.strArea || "",
     category: apiRecipe?.strCategory || "",
-    image: apiRecipe?.strMealThumb || "",
+    image: apiRecipe?.strMealThumb ? apiRecipe.strMealThumb : "",
     ingredients,
     instructions,
     name: apiRecipe?.strMeal || "",
@@ -98,4 +110,120 @@ export const convertApiRecipeToRecipe = (apiRecipe: ApiRecipe): Recipe => {
     time: parseCookingTime(apiRecipe?.strInstructions || ""),
     youtube: apiRecipe?.strYoutube || "",
   };
+};
+
+export const convertApiRecipesToRecipes = (
+  apiRecipes: (ApiRecipe | null)[]
+): (Recipe | null)[] => {
+  return apiRecipes.map((apiRecipe) => convertApiRecipeToRecipe(apiRecipe));
+};
+
+export const convertApiCategoriesToCategories = (
+  apiCategories: ApiCategory[]
+): Category[] => {
+  return apiCategories.map((apiCategory) => {
+    return { name: apiCategory?.strCategory || "" };
+  });
+};
+
+export const convertApiAreasToAreas = (apiAreas: ApiArea[]): Area[] => {
+  return apiAreas.map((apiArea) => {
+    return { name: apiArea?.strArea || "" };
+  });
+};
+
+export const convertApiIngredientsToIngredients = (
+  apiIngredients: ApiIngredient[]
+): Ingredient[] => {
+  return apiIngredients.map((apiIngredient) => {
+    return {
+      name: apiIngredient?.strIngredient || "",
+      description: apiIngredient?.strDescription || "",
+    };
+  });
+};
+
+export const filterRecipes = (
+  recipesByArea: string[],
+  recipesByCategory: string[],
+  recipesByIngredient: string[]
+): string[] => {
+  if (
+    recipesByArea.length === 0 &&
+    recipesByCategory.length === 0 &&
+    recipesByIngredient.length === 0
+  ) {
+    return [];
+  }
+
+  if (
+    recipesByArea.length > 0 &&
+    recipesByCategory.length === 0 &&
+    recipesByIngredient.length === 0
+  ) {
+    return recipesByArea;
+  }
+
+  if (
+    recipesByArea.length === 0 &&
+    recipesByCategory.length > 0 &&
+    recipesByIngredient.length === 0
+  ) {
+    return recipesByCategory;
+  }
+
+  if (
+    recipesByArea.length === 0 &&
+    recipesByCategory.length === 0 &&
+    recipesByIngredient.length > 0
+  ) {
+    return recipesByIngredient;
+  }
+
+  if (
+    recipesByArea.length > 0 &&
+    recipesByCategory.length === 0 &&
+    recipesByIngredient.length === 0
+  ) {
+    return recipesByArea;
+  }
+
+  if (
+    recipesByArea.length > 0 &&
+    recipesByCategory.length > 0 &&
+    recipesByIngredient.length === 0
+  ) {
+    return recipesByArea.filter((x) => recipesByCategory.includes(x));
+  }
+
+  if (
+    recipesByArea.length > 0 &&
+    recipesByCategory.length === 0 &&
+    recipesByIngredient.length > 0
+  ) {
+    return recipesByArea.filter((x) => recipesByIngredient.includes(x));
+  }
+
+  if (
+    recipesByArea.length === 0 &&
+    recipesByCategory.length > 0 &&
+    recipesByIngredient.length > 0
+  ) {
+    return recipesByCategory.filter((x) => recipesByIngredient.includes(x));
+  }
+
+  if (
+    recipesByArea.length > 0 &&
+    recipesByCategory.length > 0 &&
+    recipesByIngredient.length > 0
+  ) {
+    const recipesByAreaAndCategory = recipesByArea.filter((x) =>
+      recipesByCategory.includes(x)
+    );
+    return recipesByAreaAndCategory.filter((x) =>
+      recipesByIngredient.includes(x)
+    );
+  }
+
+  return [];
 };

@@ -56,11 +56,23 @@ type ApiRecipe = {
 
 type ApiMeal = {
   data: {
-    meals: ApiRecipe[];
+    meals: ApiRecipe[] | null;
   };
 };
 
-type Ingredient = {
+type FilteredMeal = {
+  idMeal: string;
+  strMeal: string;
+  strMealThumb: string;
+};
+
+type ApiFilteredMeal = {
+  data: {
+    meals: FilteredMeal[] | null;
+  };
+};
+
+type RecipeIngredient = {
   name: string;
   measurement: string;
   image: string;
@@ -71,7 +83,7 @@ type Recipe = {
   area: string;
   category: string;
   image: string;
-  ingredients: Ingredient[];
+  ingredients: RecipeIngredient[];
   instructions: string[];
   name: string;
   thumbnail: string;
@@ -80,4 +92,48 @@ type Recipe = {
   ingredientCount: number;
   time: number;
   youtube: string;
+};
+
+type ApiCategory = {
+  strCategory: string | null;
+};
+
+type ApiCategories = {
+  data: {
+    meals: ApiCategory[] | null;
+  };
+};
+
+type ApiArea = {
+  strArea: string | null;
+};
+
+type ApiAreas = {
+  data: {
+    meals: ApiArea[] | null;
+  };
+};
+
+type ApiIngredient = {
+  strIngredient: string | null;
+  strDescription: string | null;
+};
+
+type ApiIngredients = {
+  data: {
+    meals: ApiIngredient[] | null;
+  };
+};
+
+type Category = {
+  name: string;
+};
+
+type Area = {
+  name: string;
+};
+
+type Ingredient = {
+  name: string;
+  description: string;
 };

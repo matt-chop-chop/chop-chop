@@ -10,7 +10,7 @@ const MethodStep = ({ step, checked, setChecked }: MethodStepProps) => {
   return (
     <Flex
       background="var(--chakra-colors-light-background)"
-      border="2px solid var(--chakra-colors-light-emphasis)"
+      border="2px solid var(--chakra-colors-light-text)"
       borderRadius={8}
       mt={4}
       onClick={(e) => {

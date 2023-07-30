@@ -1,7 +1,7 @@
 import { defineStyle, defineStyleConfig } from "@chakra-ui/react";
 
 const baseStyle = defineStyle({
-  color: "light.emphasis",
+  color: "light.text",
   fontFamily: "Roboto",
   fontWeight: 590,
 });

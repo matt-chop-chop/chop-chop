@@ -14,7 +14,7 @@ const Layout = ({ children }: LayoutProps) => {
       width="100%"
     >
       <Flex flexDirection="column" width="100%">
-        <Container centerContent p={0}>
+        <Container centerContent maxWidth="100%" p={0} width="100%">
           <Header />
         </Container>
 
@@ -29,7 +29,7 @@ const Layout = ({ children }: LayoutProps) => {
         </Container>
       </Flex>
 
-      <Container m={0} maxWidth="100%" p={0}>
+      <Container centerContent maxWidth="1320px" p={0} width="100%">
         <Footer />
       </Container>
     </Flex>
