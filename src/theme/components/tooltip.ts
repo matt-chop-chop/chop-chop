@@ -7,7 +7,7 @@ const baseStyle = defineStyle((props) => {
     bg: "light.background",
     boxShadow: "0px 1px 5px 1px var(--chakra-colors-light-text)",
     color: "light.text",
-    maxWidth: "20rem",
+    maxWidth: "250px",
     paddingX: "3",
     paddingY: "2",
     [arrowBg.variable]: "var(--chakra-colors-light-background)",

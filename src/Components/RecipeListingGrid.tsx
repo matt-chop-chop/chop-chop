@@ -2,16 +2,15 @@ import { Grid } from "@chakra-ui/react";
 import { RandomRecipeListing, RecipeListingFromData } from "@/Components";
 
 type RecipeListingGridProps = {
-  numberOfListings?: number;
+  showRandom: boolean;
   recipes?: string[];
 };
 
 const RecipeListingGrid = ({
-  numberOfListings = 12,
+  showRandom,
   recipes = [],
 }: RecipeListingGridProps) => {
-  console.log(recipes);
-  const listings = Array.from(Array(numberOfListings).keys());
+  const listings = Array.from(Array(showRandom ? 12 : recipes.length));
 
   return (
     <Grid
@@ -26,7 +25,7 @@ const RecipeListingGrid = ({
       rowGap={[6, 8, 8]}
     >
       {listings.map((_, index) => {
-        if (recipes.length > 0) {
+        if (!showRandom) {
           return <RecipeListingFromData id={recipes[index]} key={index} />;
         }
 

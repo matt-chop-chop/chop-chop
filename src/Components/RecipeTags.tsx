@@ -9,9 +9,12 @@ const RecipeTags = ({ tags }: RecipeTagsProps) => {
 
   return (
     <Flex flexWrap="wrap" mt={1}>
-      {tags.map((tag: string, index: number) => (
-        <Tag key={index}>{tag}</Tag>
-      ))}
+      {tags.map((tag: string, index: number) => {
+        if (tag.length > 0) {
+          return <Tag key={index}>{tag}</Tag>;
+        }
+        return null;
+      })}
     </Flex>
   );
 };

@@ -97,7 +97,7 @@ export const convertApiRecipeToRecipe = (
     id: apiRecipe?.idMeal || "",
     area: apiRecipe?.strArea || "",
     category: apiRecipe?.strCategory || "",
-    image: apiRecipe?.strMealThumb || "",
+    image: apiRecipe?.strMealThumb ? apiRecipe.strMealThumb : "",
     ingredients,
     instructions,
     name: apiRecipe?.strMeal || "",
@@ -120,15 +120,13 @@ export const convertApiRecipesToRecipes = (
 
 export const convertApiCategoriesToCategories = (
   apiCategories: ApiCategory[]
-): { name: string }[] => {
+): Category[] => {
   return apiCategories.map((apiCategory) => {
     return { name: apiCategory?.strCategory || "" };
   });
 };
 
-export const convertApiAreasToAreas = (
-  apiAreas: ApiArea[]
-): { name: string }[] => {
+export const convertApiAreasToAreas = (apiAreas: ApiArea[]): Area[] => {
   return apiAreas.map((apiArea) => {
     return { name: apiArea?.strArea || "" };
   });
@@ -136,11 +134,96 @@ export const convertApiAreasToAreas = (
 
 export const convertApiIngredientsToIngredients = (
   apiIngredients: ApiIngredient[]
-): SelectableIngredient[] => {
+): Ingredient[] => {
   return apiIngredients.map((apiIngredient) => {
     return {
       name: apiIngredient?.strIngredient || "",
       description: apiIngredient?.strDescription || "",
     };
   });
+};
+
+export const filterRecipes = (
+  recipesByArea: string[],
+  recipesByCategory: string[],
+  recipesByIngredient: string[]
+): string[] => {
+  if (
+    recipesByArea.length === 0 &&
+    recipesByCategory.length === 0 &&
+    recipesByIngredient.length === 0
+  ) {
+    return [];
+  }
+
+  if (
+    recipesByArea.length > 0 &&
+    recipesByCategory.length === 0 &&
+    recipesByIngredient.length === 0
+  ) {
+    return recipesByArea;
+  }
+
+  if (
+    recipesByArea.length === 0 &&
+    recipesByCategory.length > 0 &&
+    recipesByIngredient.length === 0
+  ) {
+    return recipesByCategory;
+  }
+
+  if (
+    recipesByArea.length === 0 &&
+    recipesByCategory.length === 0 &&
+    recipesByIngredient.length > 0
+  ) {
+    return recipesByIngredient;
+  }
+
+  if (
+    recipesByArea.length > 0 &&
+    recipesByCategory.length === 0 &&
+    recipesByIngredient.length === 0
+  ) {
+    return recipesByArea;
+  }
+
+  if (
+    recipesByArea.length > 0 &&
+    recipesByCategory.length > 0 &&
+    recipesByIngredient.length === 0
+  ) {
+    return recipesByArea.filter((x) => recipesByCategory.includes(x));
+  }
+
+  if (
+    recipesByArea.length > 0 &&
+    recipesByCategory.length === 0 &&
+    recipesByIngredient.length > 0
+  ) {
+    return recipesByArea.filter((x) => recipesByIngredient.includes(x));
+  }
+
+  if (
+    recipesByArea.length === 0 &&
+    recipesByCategory.length > 0 &&
+    recipesByIngredient.length > 0
+  ) {
+    return recipesByCategory.filter((x) => recipesByIngredient.includes(x));
+  }
+
+  if (
+    recipesByArea.length > 0 &&
+    recipesByCategory.length > 0 &&
+    recipesByIngredient.length > 0
+  ) {
+    const recipesByAreaAndCategory = recipesByArea.filter((x) =>
+      recipesByCategory.includes(x)
+    );
+    return recipesByAreaAndCategory.filter((x) =>
+      recipesByIngredient.includes(x)
+    );
+  }
+
+  return [];
 };

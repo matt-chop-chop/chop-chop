@@ -1,108 +1,19 @@
-import { useQuery } from "react-query";
-import axios from "axios";
-import {
-  convertApiRecipeToRecipe,
-  convertApiRecipesToRecipes,
-  getReactQueryError,
-} from "./utils";
-import { apiUrl } from "@/constants";
-import { useFilterByArea } from "./useFilterByArea";
+import { useFilterByArea } from "@/hooks";
 import { useFilterByCategory } from "./useFilterByCategory";
 import { useFilterByIngredient } from "./useFilterByIngredient";
+import { filterRecipes } from "./utils";
 
-const updateRecipes = (
-  recipesByArea: string[],
-  recipesByCategory: string[],
-  recipesByIngredient: string[]
-): string[] => {
-  console.log(recipesByIngredient);
-  console.log(recipesByCategory);
-  console.log(recipesByArea);
-  if (
-    recipesByArea.length === 0 &&
-    recipesByCategory.length === 0 &&
-    recipesByIngredient.length === 0
-  ) {
-    return [];
-  }
-
-  if (
-    recipesByArea.length > 0 &&
-    recipesByCategory.length === 0 &&
-    recipesByIngredient.length === 0
-  ) {
-    return recipesByArea;
-  }
-
-  if (
-    recipesByArea.length === 0 &&
-    recipesByCategory.length > 0 &&
-    recipesByIngredient.length === 0
-  ) {
-    return recipesByCategory;
-  }
-
-  if (
-    recipesByArea.length === 0 &&
-    recipesByCategory.length === 0 &&
-    recipesByIngredient.length > 0
-  ) {
-    return recipesByIngredient;
-  }
-
-  if (
-    recipesByArea.length > 0 &&
-    recipesByCategory.length === 0 &&
-    recipesByIngredient.length === 0
-  ) {
-    return recipesByArea;
-  }
-
-  if (
-    recipesByArea.length > 0 &&
-    recipesByCategory.length > 0 &&
-    recipesByIngredient.length === 0
-  ) {
-    return recipesByArea.filter((x) => recipesByCategory.includes(x));
-  }
-
-  if (
-    recipesByArea.length > 0 &&
-    recipesByCategory.length === 0 &&
-    recipesByIngredient.length > 0
-  ) {
-    return recipesByArea.filter((x) => recipesByIngredient.includes(x));
-  }
-
-  if (
-    recipesByArea.length === 0 &&
-    recipesByCategory.length > 0 &&
-    recipesByIngredient.length > 0
-  ) {
-    return recipesByCategory.filter((x) => recipesByIngredient.includes(x));
-  }
-
-  if (
-    recipesByArea.length > 0 &&
-    recipesByCategory.length > 0 &&
-    recipesByIngredient.length > 0
-  ) {
-    const recipesByAreaAndCategory = recipesByArea.filter((x) =>
-      recipesByCategory.includes(x)
-    );
-    return recipesByAreaAndCategory.filter((x) =>
-      recipesByIngredient.includes(x)
-    );
-  }
-
-  return [];
+type FilterQueryState = {
+  recipes: string[];
+  error?: Error;
+  loading: boolean;
 };
 
 export const useFilteredRecipes = (
   area: string,
   category: string,
   ingredient: string
-): string[] => {
+): FilterQueryState => {
   const {
     recipes: recipesByArea,
     loading: loadingArea,
@@ -119,14 +30,27 @@ export const useFilteredRecipes = (
     error: errorIngredient,
   } = useFilterByIngredient(ingredient);
 
-  const recipes = updateRecipes(
-    recipesByArea,
-    recipesByCategory,
-    recipesByIngredient
-  );
+  const loading = loadingArea || loadingCategory || loadingIngredient;
+
+  if (errorArea || errorCategory || errorIngredient)
+    return {
+      recipes: [],
+      loading,
+      error: new Error("Recipe selection could not be found."),
+    };
+
+  if (!loading) {
+    const recipes = filterRecipes(
+      recipesByArea,
+      recipesByCategory,
+      recipesByIngredient
+    );
+
+    return { recipes, loading };
+  }
 
   return {
-    recipes,
-    loading: loadingArea || loadingCategory || loadingIngredient,
+    recipes: [],
+    loading,
   };
 };

@@ -60,6 +60,18 @@ type ApiMeal = {
   };
 };
 
+type FilteredMeal = {
+  idMeal: string;
+  strMeal: string;
+  strMealThumb: string;
+};
+
+type ApiFilteredMeal = {
+  data: {
+    meals: FilteredMeal[] | null;
+  };
+};
+
 type RecipeIngredient = {
   name: string;
   measurement: string;
@@ -111,6 +123,14 @@ type ApiIngredients = {
   data: {
     meals: ApiIngredient[] | null;
   };
+};
+
+type Category = {
+  name: string;
+};
+
+type Area = {
+  name: string;
 };
 
 type Ingredient = {

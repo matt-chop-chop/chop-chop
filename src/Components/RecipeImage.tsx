@@ -1,18 +1,9 @@
-import { Box, Flex, Image } from "@chakra-ui/react";
+import { Flex, Image } from "@chakra-ui/react";
 
 type RecipeImageProps = {
   image: string;
   maxHeight?: string[];
   defaultLogoWidth?: string[];
-};
-
-const imageExists = (image: string): boolean => {
-  var http = new XMLHttpRequest();
-
-  http.open("HEAD", image, false);
-  http.send();
-
-  return http.status != 404;
 };
 
 const RecipeImage = ({
@@ -21,16 +12,9 @@ const RecipeImage = ({
   defaultLogoWidth = [],
 }: RecipeImageProps) => {
   return (
-    <Box>
-      {image.length !== 0 && imageExists(image) ? (
-        <Image
-          alt="A recipe image"
-          maxHeight={maxHeight}
-          objectFit="cover"
-          src={image}
-          width="100%"
-        />
-      ) : (
+    <Image
+      alt="A recipe image"
+      fallback={
         <Flex
           alignItems="center"
           background="var(--chakra-colors-light-background)"
@@ -47,8 +31,12 @@ const RecipeImage = ({
             width={defaultLogoWidth}
           />
         </Flex>
-      )}
-    </Box>
+      }
+      maxHeight={maxHeight}
+      objectFit="cover"
+      src={image}
+      width="100%"
+    />
   );
 };
 

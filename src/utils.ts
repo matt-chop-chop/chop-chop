@@ -7,7 +7,6 @@ export const fromatCookingTime = (time: number): string => {
 };
 
 const parseRecipe = (recipe: Recipe): string => {
-  console.log(recipe);
   let response =
     recipe.name +
     "\n" +

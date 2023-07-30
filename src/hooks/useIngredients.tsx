@@ -1,8 +1,6 @@
 import { useQuery } from "react-query";
 import axios from "axios";
 import {
-  convertApiAreasToAreas,
-  convertApiCategoriesToCategories,
   convertApiIngredientsToIngredients,
   getReactQueryError,
 } from "./utils";
@@ -14,21 +12,24 @@ type ApiQueryState = {
   isLoading: boolean;
 };
 
-type AreaQueryState = {
-  ingredients: SelectableIngredient[];
+type IngredientQueryState = {
+  ingredients: Ingredient[];
   error?: Error;
   loading: boolean;
 };
 
-export const useIngredients = (): AreaQueryState => {
+export const useIngredients = (): IngredientQueryState => {
   const response: ApiQueryState = useQuery([`ingredients`], async () => {
     return await axios.get(`${apiUrl}/list.php?i=list`);
   });
 
   const { data, isLoading: loading, error } = response;
-  const ingredients = data
-    ? convertApiIngredientsToIngredients(data.data?.meals)
-    : [];
+
+  const ingredients =
+    data && data?.data?.meals
+      ? convertApiIngredientsToIngredients(data.data?.meals)
+      : [];
+  ingredients.unshift({ name: "None", description: "" });
 
   return { ingredients, loading, error: getReactQueryError(error) };
 };

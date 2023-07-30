@@ -1,28 +1,22 @@
 import { useQuery } from "react-query";
 import axios from "axios";
-import {
-  convertApiRecipeToRecipe,
-  convertApiRecipesToRecipes,
-  getReactQueryError,
-} from "./utils";
+import { getReactQueryError } from "./utils";
 import { apiUrl } from "@/constants";
-import { useParams } from "react-router-dom";
-import { useRouter } from "next/router";
 
 type ApiQueryState = {
-  data?: ApiMeal;
+  data?: ApiFilteredMeal;
   error: unknown;
   isLoading: boolean;
   isSuccess: boolean;
 };
 
-type RecipeQueryState = {
+type FilterQueryState = {
   recipes: string[];
   error?: Error;
   loading: boolean;
 };
 
-export const useFilterByCategory = (category: string): RecipeQueryState => {
+export const useFilterByCategory = (category: string): FilterQueryState => {
   const response: ApiQueryState = useQuery(
     [`filter-category-${category}`],
     async () => {
@@ -34,10 +28,9 @@ export const useFilterByCategory = (category: string): RecipeQueryState => {
 
   if (category === "None") return { recipes: [], loading: false };
 
-  if (isSuccess && data?.data?.meals) {
-    const recipes = data ? convertApiRecipesToRecipes(data.data.meals) : [];
+  if (isSuccess && data && data?.data?.meals) {
     return {
-      recipes: recipes.map((recipe) => recipe.id),
+      recipes: data.data.meals.map((recipe) => (recipe ? recipe.idMeal : "")),
       loading,
       error: getReactQueryError(error),
     };

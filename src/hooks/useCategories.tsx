@@ -10,7 +10,7 @@ type ApiQueryState = {
 };
 
 type CategoryQueryState = {
-  categories: string[];
+  categories: Category[];
   error?: Error;
   loading: boolean;
 };
@@ -21,9 +21,11 @@ export const useCategories = (): CategoryQueryState => {
   });
 
   const { data, isLoading: loading, error } = response;
-  const categories = data
-    ? convertApiCategoriesToCategories(data.data?.meals)
-    : [];
+  const categories =
+    data && data?.data?.meals
+      ? convertApiCategoriesToCategories(data.data?.meals)
+      : [];
+  categories.unshift({ name: "None" });
 
   return { categories, loading, error: getReactQueryError(error) };
 };

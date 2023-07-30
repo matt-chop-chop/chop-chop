@@ -10,7 +10,7 @@ type ApiQueryState = {
 };
 
 type AreaQueryState = {
-  areas: string[];
+  areas: Area[];
   error?: Error;
   loading: boolean;
 };
@@ -21,7 +21,9 @@ export const useAreas = (): AreaQueryState => {
   });
 
   const { data, isLoading: loading, error } = response;
-  const areas = data ? convertApiAreasToAreas(data.data?.meals) : [];
+  const areas =
+    data && data?.data?.meals ? convertApiAreasToAreas(data.data?.meals) : [];
+  areas.unshift({ name: "None" });
 
   return { areas, loading, error: getReactQueryError(error) };
 };

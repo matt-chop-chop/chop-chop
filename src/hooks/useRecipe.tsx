@@ -34,7 +34,6 @@ export const useRecipe = (id?: string): RecipeQueryState => {
     const recipe = data ? convertApiRecipeToRecipe(data.data.meals[0]) : null;
     return { recipe, loading, error: getReactQueryError(error) };
   }
-
   if (isSuccess && !data?.data?.meals) {
     return {
       recipe: null,
