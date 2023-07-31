@@ -1,12 +1,38 @@
-import Select from "react-select";
-import { Option, styles } from "./custom";
+import { styles } from "./style";
+import React from "react";
+import { InfoOutlineIcon } from "@chakra-ui/icons";
+import { Flex, Tooltip } from "@chakra-ui/react";
+import Select, { components, OptionProps } from "react-select";
+
+const Option = ({ ...props }: OptionProps<SelectOption, false>) => {
+  const { description, label } = props.data;
+
+  return (
+    <components.Option {...props}>
+      <Flex alignItems="center" justifyContent="space-between">
+        {label}
+        {description && (
+          <Tooltip hasArrow label={description} placement="left">
+            <InfoOutlineIcon mr={3} />
+          </Tooltip>
+        )}
+      </Flex>
+    </components.Option>
+  );
+};
+
+export type SelectOption = {
+  label: string;
+  value: string;
+  description?: string;
+};
 
 type SelectItem = {
   name: string;
   description?: string;
 };
 
-type SelectProps = {
+export type FilterSelectProps = {
   options: SelectItem[];
   onSelectedChange: (selectedItem: string) => void;
   id?: string;
@@ -20,7 +46,7 @@ const FilterSelect = ({
   id = "select",
   isDisabled = false,
   isLoading = false,
-}: SelectProps) => {
+}: FilterSelectProps) => {
   const getFormattedOptions = (options: SelectItem[]): SelectOption[] => {
     return options.map((option) => {
       return {

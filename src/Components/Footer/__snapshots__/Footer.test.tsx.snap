@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer renders as expected  1`] = `
+<Flex
+  alignItems={
+    [
+      "center",
+      "center",
+      "start",
+    ]
+  }
+  flexDirection="column"
+  mt={8}
+  p={4}
+  textAlign={
+    [
+      "center",
+      "center",
+      "left",
+    ]
+  }
+  width="100%"
+>
+  <Image
+    alt="Chop Chop logo"
+    height="64px"
+    src="/images/logo.png"
+  />
+  <Text
+    mt={4}
+    variant="body-small"
+    width={
+      [
+        "80%",
+        "80%",
+        "40%",
+      ]
+    }
+  >
+    Chop Chop is a site designed to allow you to quickly and easily make restaurant quality dishes with ingredients you already have at home.
+  </Text>
+  <Text
+    mt={4}
+    variant="body-small"
+  >
+    © Chop Chop 
+    2023
+  </Text>
+</Flex>
+`;

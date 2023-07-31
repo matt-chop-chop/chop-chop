@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RecipeListing renders as expected  1`] = `
+<Link
+  _hover={
+    {
+      "textDecoration": "none",
+    }
+  }
+  as={
+    {
+      "$$typeof": Symbol(react.forward_ref),
+      "default": [Circular],
+      "render": [Function],
+    }
+  }
+  href="/recipe/52922"
+>
+  <Flex
+    _hover={
+      {
+        "border": "2px solid var(--chakra-colors-light-emphasis)",
+        "cursor": "pointer",
+        "transform": "scale(1.01)",
+        "transition": "transform 250ms ease-in",
+      }
+    }
+    background="var(--chakra-colors-light-background)"
+    border="2px solid var(--chakra-colors-light-text)"
+    borderRadius={4}
+    flexDirection="column"
+    height="100%"
+    justifyContent="space-between"
+    minHeight="300px"
+    p={4}
+    transition="transform 250ms ease-out"
+    width="100%"
+  >
+    <Box>
+      <RecipeImage
+        defaultLogoWidth={
+          [
+            "60%",
+            "70%",
+            "55%",
+          ]
+        }
+        image="https://www.themealdb.com/images/media/meals/rtwwvv1511799504.jpg/preview"
+        maxHeight={
+          [
+            "200px",
+            "200px",
+            "200px",
+          ]
+        }
+      />
+      <Heading
+        as="h3"
+        mt={4}
+        textDecoration="underline"
+        variant="heading-small"
+      >
+        Prawn & Fennel Bisque
+      </Heading>
+      <RecipeDetailsGrid
+        area="French"
+        category="Side"
+        gridTemplateColumns={
+          [
+            "repeat(2, 1fr)",
+            "repeat(2, 1fr)",
+            "repeat(2, 1fr)",
+          ]
+        }
+        ingredientCount={12}
+        time={75}
+      />
+    </Box>
+    <RecipeTags
+      tags={
+        [
+          "Soup",
+          "Warm",
+          "Seafood",
+          "Shellfish",
+        ]
+      }
+    />
+  </Flex>
+</Link>
+`;

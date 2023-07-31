@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoadingCard renders as expected  1`] = `
+<Flex
+  alignItems="center"
+  background="var(--chakra-colors-light-background)"
+  border=""
+  borderRadius={4}
+  height="100%"
+  justifyContent="center"
+  minHeight="250px"
+  mt="10px"
+  p={4}
+  width="100%"
+>
+  <CircularProgress
+    color="var(--chakra-colors-light-emphasis)"
+    isIndeterminate={true}
+    size={100}
+  />
+</Flex>
+`;
+
+exports[`LoadingCard renders with default props  1`] = `
+<Flex
+  alignItems="center"
+  background="var(--chakra-colors-light-background)"
+  border="2px solid var(--chakra-colors-light-text)"
+  borderRadius={4}
+  height="100%"
+  justifyContent="center"
+  minHeight="250px"
+  mt="0px"
+  p={4}
+  width="100%"
+>
+  <CircularProgress
+    color="var(--chakra-colors-light-emphasis)"
+    isIndeterminate={true}
+    size={100}
+  />
+</Flex>
+`;

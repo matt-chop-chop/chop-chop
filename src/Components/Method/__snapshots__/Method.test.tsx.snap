@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Method renders as expected  1`] = `
+<Box
+  my={5}
+>
+  <Heading
+    as="h2"
+    mb={4}
+    variant="heading-medium"
+  >
+    Method
+  </Heading>
+  <MethodStep
+    checked={false}
+    key="0"
+    setChecked={[Function]}
+    step="Test instruction 1"
+  />
+  <MethodStep
+    checked={false}
+    key="1"
+    setChecked={[Function]}
+    step="Test instruction 2"
+  />
+</Box>
+`;

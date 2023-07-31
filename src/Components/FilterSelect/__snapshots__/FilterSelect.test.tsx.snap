@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilterSelect renders as expected  1`] = `
+<ForwardRef
+  components={
+    {
+      "DropdownIndicator": [Function],
+      "IndicatorSeparator": [Function],
+      "Option": [Function],
+    }
+  }
+  id="select"
+  instanceId="select"
+  isDisabled={false}
+  isLoading={false}
+  onChange={[Function]}
+  options={
+    [
+      {
+        "description": undefined,
+        "label": "Test 1",
+        "value": "Test 1",
+      },
+      {
+        "description": "This is a test",
+        "label": "Test 2",
+        "value": "Test 2",
+      },
+    ]
+  }
+  placeholder="Select a value..."
+  styles={
+    {
+      "control": [Function],
+      "menu": [Function],
+      "menuList": [Function],
+      "option": [Function],
+      "valueContainer": [Function],
+    }
+  }
+/>
+`;

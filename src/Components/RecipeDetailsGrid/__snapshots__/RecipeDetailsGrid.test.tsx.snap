@@ -1,0 +1,207 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RecipeDetailsGrid renders as expected  1`] = `
+<Grid
+  columnGap={
+    [
+      8,
+      8,
+      6,
+    ]
+  }
+  gridAutoRows="1fr"
+  gridTemplateColumns={
+    [
+      "repeat(1, 1fr)",
+      "repeat(2, 1fr)",
+      "repeat(3, 1fr)",
+    ]
+  }
+  mt={8}
+  rowGap={8}
+>
+  <Flex
+    flexDirection="column"
+  >
+    <Flex
+      alignItems="center"
+    >
+      <Text
+        variant="body-bold"
+      >
+        Cooking Time
+      </Text>
+      <TimeIcon
+        boxSize={
+          [
+            3,
+            4,
+            4,
+          ]
+        }
+        ml={
+          [
+            1,
+            2,
+            2,
+          ]
+        }
+      />
+    </Flex>
+    <Text
+      mt={1}
+      variant="body"
+    >
+      10 minutes
+    </Text>
+  </Flex>
+  <Flex
+    flexDirection="column"
+  >
+    <Text
+      variant="body-bold"
+    >
+      Ingredient Count
+    </Text>
+    <Text
+      mt={1}
+      variant="body"
+    >
+      1
+    </Text>
+  </Flex>
+  <Flex
+    flexDirection="column"
+  >
+    <Text
+      variant="body-bold"
+    >
+      Meal Type
+    </Text>
+    <Text
+      mt={1}
+      variant="body"
+    >
+      Test Category
+    </Text>
+  </Flex>
+  <Flex
+    flexDirection="column"
+  >
+    <Text
+      variant="body-bold"
+    >
+      Place of Origin
+    </Text>
+    <Text
+      mt={1}
+      variant="body"
+    >
+      Test Area
+    </Text>
+  </Flex>
+</Grid>
+`;
+
+exports[`RecipeDetailsGrid renders with default props  1`] = `
+<Grid
+  columnGap={
+    [
+      8,
+      8,
+      6,
+    ]
+  }
+  gridAutoRows="1fr"
+  gridTemplateColumns={
+    [
+      "repeat(2, 1fr)",
+      "repeat(2, 1fr)",
+      "repeat(4, 1fr)",
+    ]
+  }
+  mt={8}
+  rowGap={8}
+>
+  <Flex
+    flexDirection="column"
+  >
+    <Flex
+      alignItems="center"
+    >
+      <Text
+        variant="body-bold"
+      >
+        Cooking Time
+      </Text>
+      <TimeIcon
+        boxSize={
+          [
+            3,
+            4,
+            4,
+          ]
+        }
+        ml={
+          [
+            1,
+            2,
+            2,
+          ]
+        }
+      />
+    </Flex>
+    <Text
+      mt={1}
+      variant="body"
+    >
+      10 minutes
+    </Text>
+  </Flex>
+  <Flex
+    flexDirection="column"
+  >
+    <Text
+      variant="body-bold"
+    >
+      Ingredient Count
+    </Text>
+    <Text
+      mt={1}
+      variant="body"
+    >
+      1
+    </Text>
+  </Flex>
+  <Flex
+    flexDirection="column"
+  >
+    <Text
+      variant="body-bold"
+    >
+      Meal Type
+    </Text>
+    <Text
+      mt={1}
+      variant="body"
+    >
+      Test Category
+    </Text>
+  </Flex>
+  <Flex
+    flexDirection="column"
+  >
+    <Text
+      variant="body-bold"
+    >
+      Place of Origin
+    </Text>
+    <Text
+      mt={1}
+      variant="body"
+    >
+      Test Area
+    </Text>
+  </Flex>
+</Grid>
+`;

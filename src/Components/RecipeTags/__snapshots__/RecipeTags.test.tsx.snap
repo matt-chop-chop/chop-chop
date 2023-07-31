@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RecipeTags does not render empty tags  1`] = `
+<Flex
+  flexWrap="wrap"
+  mt={1}
+>
+  <Tag
+    key="0"
+  >
+    Test Tag 1
+  </Tag>
+</Flex>
+`;
+
+exports[`RecipeTags renders as expected  1`] = `
+<Flex
+  flexWrap="wrap"
+  mt={1}
+>
+  <Tag
+    key="0"
+  >
+    Test Tag 1
+  </Tag>
+  <Tag
+    key="1"
+  >
+    Test Tag 2
+  </Tag>
+</Flex>
+`;

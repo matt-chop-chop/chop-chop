@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home renders as expected 1`] = `
+<Box>
+  <Hero
+    message="Chop Chop is a site designed to allow you to quickly and easily make restaurant quality dishes with ingredients you already have at home."
+    title="Welcome to Chop Chop!"
+  />
+  <Flex
+    flexDirection="column"
+    mb="40px"
+    mt="40px"
+  >
+    <Heading
+      as="h2"
+      variant="heading-medium"
+    >
+      What kind of recipe would you like to cook?
+    </Heading>
+    <FilterSelectForm
+      errorMessage="Ingredients could not be loaded"
+      id="select-ingredient"
+      label="What would you like the main ingredient of your recipe to be?"
+      loading={false}
+      options={
+        [
+          {
+            "description": "",
+            "name": "None",
+          },
+          {
+            "description": "Test description",
+            "name": "Test 1",
+          },
+          {
+            "description": "Test description",
+            "name": "Test 2",
+          },
+        ]
+      }
+      setSelection={[Function]}
+    />
+    <FilterSelectForm
+      errorMessage="Categories could not be loaded"
+      id="select-category"
+      label="What category of recipe would you like to cook?"
+      loading={false}
+      options={
+        [
+          {
+            "name": "None",
+          },
+          {
+            "name": "",
+          },
+          {
+            "name": "",
+          },
+        ]
+      }
+      setSelection={[Function]}
+    />
+    <FilterSelectForm
+      errorMessage="Areas could not be loaded"
+      id="select-area"
+      label="What area would you like your recipe to be from?"
+      loading={false}
+      options={
+        [
+          {
+            "name": "None",
+          },
+          {
+            "name": "",
+          },
+          {
+            "name": "",
+          },
+        ]
+      }
+      setSelection={[Function]}
+    />
+  </Flex>
+  <FilterResults
+    area="None"
+    category="None"
+    ingredient="None"
+  />
+</Box>
+`;

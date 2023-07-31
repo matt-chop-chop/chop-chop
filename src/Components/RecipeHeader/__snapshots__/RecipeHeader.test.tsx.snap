@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RecipeHeader renders as expected  1`] = `
+<Flex
+  borderBottom="2px solid var(--chakra-colors-light-text)"
+  flexDirection="column"
+  p={4}
+>
+  <RecipeImage
+    image="https://www.themealdb.com/images/media/meals/rtwwvv1511799504.jpg"
+  />
+  <Flex
+    alignItems="center"
+    justifyContent="space-between"
+    width="100%"
+  >
+    <Heading
+      as="h1"
+      mt={6}
+      textDecoration="underline"
+      variant="heading-large"
+    >
+      Prawn & Fennel Bisque
+    </Heading>
+    <DownloadIcon
+      _hover={
+        {
+          "transform": "scale(1.5)",
+          "transition": "transform 250ms ease-in",
+        }
+      }
+      boxSize={5}
+      cursor="pointer"
+      onClick={[Function]}
+      transition="transform 250ms ease-out"
+    />
+  </Flex>
+  <RecipeDetailsGrid
+    area="French"
+    category="Side"
+    ingredientCount={12}
+    time={75}
+  />
+  <RecipeTags
+    tags={
+      [
+        "Soup",
+        "Warm",
+        "Seafood",
+        "Shellfish",
+      ]
+    }
+  />
+</Flex>
+`;

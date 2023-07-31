@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Hero renders as expected  1`] = `
+<Flex
+  alignItems="center"
+  flexDirection="column"
+  textAlign="center"
+>
+  <Image
+    alt="Chop Chop logo"
+    height="128px"
+    src="/images/logo.png"
+  />
+  <Heading
+    as="h1"
+    maxWidth={
+      [
+        "none",
+        "880px",
+        "880px",
+      ]
+    }
+    mt={
+      [
+        3,
+        5,
+        5,
+      ]
+    }
+    variant={
+      [
+        "heading-medium",
+        "heading-large",
+        "heading-large",
+      ]
+    }
+  >
+    Hero Test Title
+  </Heading>
+  <Text
+    maxWidth={
+      [
+        "none",
+        "740px",
+        "740px",
+      ]
+    }
+    mt={
+      [
+        3,
+        5,
+        5,
+      ]
+    }
+    px={3}
+    variant={
+      [
+        "body",
+        "body-large",
+        "body-large",
+      ]
+    }
+  >
+    This is a test
+  </Text>
+</Flex>
+`;

@@ -8,7 +8,7 @@ export const getReactQueryError = (error?: unknown): Error | undefined => {
   return new Error(`${error}`);
 };
 
-const parseIngredients = (apiRecipe: ApiRecipe): RecipeIngredient[] => {
+export const parseIngredients = (apiRecipe: ApiRecipe): RecipeIngredient[] => {
   const ingredientKeys = Object.keys(apiRecipe).filter((key) =>
     key.includes("strIngredient")
   );
@@ -34,14 +34,14 @@ const parseIngredients = (apiRecipe: ApiRecipe): RecipeIngredient[] => {
   return ingredients;
 };
 
-const parseInstructions = (instructions: string): string[] => {
+export const parseInstructions = (instructions: string): string[] => {
   const instructionsWithDelimiter =
     instructions.replaceAll(". ", ". @£$") || "";
   const instructionSteps = instructionsWithDelimiter.split("@£$");
   return instructionSteps;
 };
 
-const getSeconds = (instructions: string): number => {
+export const getSeconds = (instructions: string): number => {
   const secondRegEx =
     "[0-9]+(?=sec)|[0-9]+(?= sec)|[0-9]+(?=second)|[0-9]+(?= second)|[0-9]+(?=secs)|[0-9]+(?= secs)|[0-9]+(?=seconds)|[0-9]+(?= seconds)";
   const matches = instructions.match(new RegExp(secondRegEx, "g"));
@@ -50,7 +50,7 @@ const getSeconds = (instructions: string): number => {
   return sum;
 };
 
-const getMinutes = (instructions: string): number => {
+export const getMinutes = (instructions: string): number => {
   const minuteRegEx =
     "[0-9]+(?=min)|[0-9]+(?= min)|[0-9]+(?=minute)|[0-9]+(?= minute)|[0-9]+(?=mins)|[0-9]+(?= mins)|[0-9]+(?=minutes)|[0-9]+(?= minutes)";
   const matches = instructions.match(new RegExp(minuteRegEx, "g"));
@@ -59,7 +59,7 @@ const getMinutes = (instructions: string): number => {
   return sum * 60;
 };
 
-const getHours = (instructions: string): number => {
+export const getHours = (instructions: string): number => {
   const hourRegEx =
     "[0-9]+(?=hr)|[0-9]+(?= hr)|[0-9]+(?=hour)|[0-9]+(?= hour)|[0-9]+(?=hrs)|[0-9]+(?= hrs)|[0-9]+(?=hours)|[0-9]+(?= hours)";
   const matches = instructions.match(new RegExp(hourRegEx, "g"));
@@ -68,7 +68,7 @@ const getHours = (instructions: string): number => {
   return sum * 3600;
 };
 
-const parseCookingTime = (instructions: string): number => {
+export const parseCookingTime = (instructions: string): number => {
   const _instructions = instructions.toLocaleLowerCase();
 
   const timeAsSeconds =
@@ -80,7 +80,10 @@ const parseCookingTime = (instructions: string): number => {
   // rounded up to the nearest 5 minutes
   const roundedTimeAsMinutes = Math.ceil(timeAsMinutes / 5) * 5;
 
-  // add on a contingency 15 minutes
+  // if they have not provided any time set to an average time of 45 minutes
+  if (roundedTimeAsMinutes == 0) return 45;
+
+  // add on a contingency 15 minutes for things that are unlikely to be timed e.g. chopping ingredients
   return roundedTimeAsMinutes + 15;
 };
 
@@ -178,14 +181,6 @@ export const filterRecipes = (
     recipesByIngredient.length > 0
   ) {
     return recipesByIngredient;
-  }
-
-  if (
-    recipesByArea.length > 0 &&
-    recipesByCategory.length === 0 &&
-    recipesByIngredient.length === 0
-  ) {
-    return recipesByArea;
   }
 
   if (

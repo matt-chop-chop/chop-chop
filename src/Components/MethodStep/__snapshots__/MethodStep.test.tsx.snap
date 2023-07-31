@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MethodStep renders as expected  1`] = `
+<Flex
+  _hover={
+    {
+      "cursor": "pointer",
+      "transform": "scale(1.01)",
+      "transition": "transform 250ms ease-in",
+    }
+  }
+  background="var(--chakra-colors-light-background)"
+  border="2px solid var(--chakra-colors-light-text)"
+  borderRadius={8}
+  mt={4}
+  onClick={[Function]}
+  p={4}
+  transition="transform 250ms ease-out"
+>
+  <Checkbox
+    isChecked={false}
+    mr={4}
+    onClick={[Function]}
+  />
+  <Text
+    variant="body-large"
+  >
+    This is a test Method Step
+  </Text>
+</Flex>
+`;

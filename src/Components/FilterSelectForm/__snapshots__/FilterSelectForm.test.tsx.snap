@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilterSelectForm renders as expected  1`] = `
+<FormControl
+  isInvalid={true}
+  mt={5}
+>
+  <FormLabel
+    htmlFor="test"
+    variant="body"
+  >
+    This is a test
+  </FormLabel>
+  <FilterSelect
+    id="test"
+    isDisabled={true}
+    isLoading={false}
+    onSelectedChange={[MockFunction]}
+    options={
+      [
+        {
+          "name": "Test 1",
+        },
+        {
+          "name": "Test 2",
+        },
+      ]
+    }
+  />
+  <FormErrorMessage>
+    Test Error
+    : There has been an error
+  </FormErrorMessage>
+</FormControl>
+`;
