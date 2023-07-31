@@ -6,7 +6,7 @@ import { useState } from "react";
 import React from "react";
 
 const Home = () => {
-  let {
+  const {
     ingredients,
     loading: ingredientsLoading,
     error: ingredientsError,

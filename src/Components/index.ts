@@ -21,3 +21,5 @@ export { RecipeListingFromData } from "./RecipeListingFromData";
 export { RecipeListingGrid } from "./RecipeListingGrid";
 export { RecipeTags } from "./RecipeTags";
 export { Toast } from "./Toast";
+
+export { default as NotFoundState } from "./NotFoundState";
