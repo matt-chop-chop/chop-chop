@@ -8,7 +8,7 @@ stages:
 build:
   stage: build
   script:
-    - npm install
+    - npm install next
     - npm run build
 
 lint:
@@ -20,4 +20,5 @@ lint:
 test:
   stage: test
   script:
+    - npm install jest
     - npm test
