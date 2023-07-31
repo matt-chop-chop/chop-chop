@@ -12,6 +12,7 @@ export { LoadingCard } from "./LoadingCard";
 export { Logo } from "./Logo";
 export { Method } from "./Method";
 export { MethodStep } from "./MethodStep";
+export { NotFoundState } from "./NotFoundState";
 export { RandomRecipeListing } from "./RandomRecipeListing";
 export { RecipeDetailsGrid } from "./RecipeDetailsGrid";
 export { RecipeHeader } from "./RecipeHeader";
@@ -21,5 +22,3 @@ export { RecipeListingFromData } from "./RecipeListingFromData";
 export { RecipeListingGrid } from "./RecipeListingGrid";
 export { RecipeTags } from "./RecipeTags";
 export { Toast } from "./Toast";
-
-export { default as NotFoundState } from "./NotFoundState";

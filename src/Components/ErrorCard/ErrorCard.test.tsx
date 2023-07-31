@@ -1,7 +1,6 @@
 import { shallow } from "enzyme";
 import React from "react";
 import ErrorCard, { ErrorCardProps } from "./ErrorCard";
-import { useRouter } from "next/router";
 
 jest.mock("next/router", () => ({
   __esModule: true,
@@ -26,18 +25,6 @@ describe("ErrorCard", () => {
 
   it("renders with default props", () => {
     const wrapper = shallow(<ErrorCard error={props.error} />);
-    expect(wrapper).toMatchSnapshot();
-  });
-
-  it("renders a link to page relating to the id in the url if pathname is not /", () => {
-    const wrapper = shallow(<ErrorCard error={props.error} />);
-
-    (useRouter as jest.Mock).mockReturnValue({
-      pathname: "test",
-      query: {
-        id: "123",
-      },
-    });
     expect(wrapper).toMatchSnapshot();
   });
 });

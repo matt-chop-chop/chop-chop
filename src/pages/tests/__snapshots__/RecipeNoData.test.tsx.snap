@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Recipe renders as expected when no recipe is returned 1`] = `
+<ErrorCard
+  error={[Error: Recipe could not be found.]}
+  mt="100px"
+  showBorder={false}
+/>
+`;

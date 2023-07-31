@@ -1,6 +1,7 @@
 import { Button, Flex, Link, Text } from "@chakra-ui/react";
 import { InfoOutlineIcon } from "@chakra-ui/icons";
 import NextLink from "next/link";
+import React from "react";
 
 const NotFoundState = () => {
   return (

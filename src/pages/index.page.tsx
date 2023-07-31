@@ -2,7 +2,6 @@ import { Hero, FilterSelectForm, FilterResults } from "@/Components";
 import { siteDescription } from "@/constants";
 import { useAreas, useCategories, useIngredients } from "@/hooks";
 import { Box, Flex, Heading } from "@chakra-ui/react";
-import { useState } from "react";
 import React from "react";
 
 const Home = () => {
@@ -18,9 +17,9 @@ const Home = () => {
   } = useCategories();
   const { areas, loading: areasLoading, error: areasError } = useAreas();
 
-  const [area, setArea] = useState("None");
-  const [ingredient, setIngredient] = useState("None");
-  const [category, setCategory] = useState("None");
+  const [area, setArea] = React.useState("None");
+  const [ingredient, setIngredient] = React.useState("None");
+  const [category, setCategory] = React.useState("None");
 
   return (
     <Box>
