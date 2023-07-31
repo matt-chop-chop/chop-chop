@@ -3,6 +3,7 @@ image: node
 stages:
   - build
   - lint
+  - test
 
 build:
   stage: build
